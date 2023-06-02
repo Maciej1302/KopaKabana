@@ -7,7 +7,7 @@ import java.util.logging.SocketHandler;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        ZAWODNIK z1 = new ZAWODNIK("Maciuś123", "R", 13);
+        ZAWODNIK z1 = new ZAWODNIK("Maciuś11123", "R", 13);
         ZAWODNIK z2 = new ZAWODNIK("Ulcia", "R", 4);
         ZAWODNIK z3 = new ZAWODNIK("Domiś", "Ż", 23);
         ZAWODNIK z4 = new ZAWODNIK("Romek", "A", 80);
