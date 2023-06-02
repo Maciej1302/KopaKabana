@@ -209,7 +209,7 @@ public class Main {
                                                 System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
                                             }
 
-                                            System.out.println("czemu sie kurwa nie zatrzymujesz");
+
                                             break;
                                         case 2:
                                             for (DRUZYNA druzyna: turniej.Druzyny) {
