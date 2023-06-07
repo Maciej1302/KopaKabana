@@ -12,6 +12,10 @@ public class TURNIEJ {
     public ArrayList<Integer> WynikiDruzynPrzeciaganieLiny = new ArrayList<>();
     public ArrayList<DRUZYNA> Druzyny = new ArrayList<>();
     public ArrayList<SĘDZIA> sedziowie = new ArrayList<>();
+    public ArrayList<SĘDZIA> Sedziowie_DwaOgnie = new ArrayList<>();
+
+    public ArrayList<SĘDZIA> Sedziowie_SiatkowkaPlazowa = new ArrayList<>();
+    public ArrayList<SĘDZIA> Sedziowie_PrzeciaganieLiny = new ArrayList<>();
     public TURNIEJ() {
     }
     public void dodajDruzyne(DRUZYNA s) {
@@ -64,9 +68,18 @@ public class TURNIEJ {
 
     public void dodajSedziego(SĘDZIA sędzia)
     {
+        if(sędzia.DziedzinaSportowa.equals("Dwa_Ognie"))
+            Sedziowie_DwaOgnie.add(sędzia);
+        else if(sędzia.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
+            Sedziowie_SiatkowkaPlazowa.add(sędzia);
+        else if(sędzia.DziedzinaSportowa.equals("Przeciaganie_Liny"))
+            Sedziowie_PrzeciaganieLiny.add(sędzia);
+        else {
+            System.out.println("Błąd");
+            return;
+        }
         sedziowie.add(sędzia);
     }
-
     public void przegladajSedziow(){
         for (SĘDZIA sedzia: sedziowie) {
             System.out.println("Sędzia nr: "+ sedziowie.indexOf(sedzia) + "\n" + "Imie : " + sedzia.Imie + "\n" + "Nazwisko : " +sedzia.Nazwisko + "\n" + "Numer : " + sedzia.NumerSędziego + "\n" + "Dyscyplina : "+ sedzia.DziedzinaSportowa);
@@ -120,7 +133,7 @@ public class TURNIEJ {
                 dziedzina = scanner.next();
 
                 SĘDZIA sędzia = new SĘDZIA(imie, nazwisko, nr, dziedzina);
-                sedziowie.add(sędzia);
+                dodajSedziego(sędzia);
             }
 
 
