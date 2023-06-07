@@ -1,7 +1,6 @@
-import java.nio.channels.ScatteringByteChannel;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.io.*;
 
@@ -16,6 +15,7 @@ public class TURNIEJ {
 
     public ArrayList<SĘDZIA> Sedziowie_SiatkowkaPlazowa = new ArrayList<>();
     public ArrayList<SĘDZIA> Sedziowie_PrzeciaganieLiny = new ArrayList<>();
+    public DRUZYNA d1, d2;
     public TURNIEJ() {
     }
     public void dodajDruzyne(DRUZYNA s) {
@@ -190,5 +190,47 @@ public class TURNIEJ {
     }
 
     }
+    private int m1=0, m2=3;
 
-}
+    public void rozegrajPolfinal(){
+        Collections.sort(Druzyny, new PorownywaniePunktow());
+
+        for (DRUZYNA druzyna : Druzyny) {
+
+            if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && Druzyny.indexOf(druzyna) <=1 ) {
+                MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(Druzyny.get(m1),Druzyny.get(m2), Sedziowie_SiatkowkaPlazowa);
+                System.out.println("Druzyna:  "+ Druzyny.get(m1).NazwaDruzyny+  " vs "+  " Druzyna " +Druzyny.get(m2).NazwaDruzyny + " Sędzia głwóny: "+meczSiatkowkaPlazowa.sedzia1.Imie+" Sędzia liniowy 1 :"+meczSiatkowkaPlazowa.sedzia2.Imie+" Sędzia liniowy 2 :"+meczSiatkowkaPlazowa.sedzia3.Imie);
+                System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
+                if(meczSiatkowkaPlazowa.wynikd1 > meczSiatkowkaPlazowa.wynikd2)
+                {
+                    Druzyny.get(m1).setPunkty(-2);
+                }
+                else
+                {
+                    Druzyny.get(m2).setPunkty(-2);
+                }
+
+                m1++;
+                m2--;
+
+
+            }
+        }
+        for (DRUZYNA druzyny :Druzyny) {
+            if(druzyny.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
+                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
+        }
+    }
+    public void rozegrajFinal(){
+        System.out.println("manymany33");
+        for (DRUZYNA druzyna: Druzyny) {
+            System.out.println("many many ");
+            if(druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty()==-2){
+                MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(Druzyny.get(0),Druzyny.get(1), Sedziowie_SiatkowkaPlazowa);
+                System.out.println("Druzyna:  "+ Druzyny.get(0).NazwaDruzyny+  " vs "+  " Druzyna " +Druzyny.get(1).NazwaDruzyny + " Sędzia głwóny: "+meczSiatkowkaPlazowa.sedzia1.Imie+" Sędzia liniowy 1 :"+meczSiatkowkaPlazowa.sedzia2.Imie+" Sędzia liniowy 2 :"+meczSiatkowkaPlazowa.sedzia3.Imie);
+                System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
+            }
+        }
+    }
+
+    }

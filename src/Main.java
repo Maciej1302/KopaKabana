@@ -16,15 +16,15 @@ public class Main {
         ZAWODNIK z6 = new ZAWODNIK("Ulcia", "R", 4);
         ZAWODNIK z7 = new ZAWODNIK("Domiś", "Ż", 23);
         ZAWODNIK z8 = new ZAWODNIK("Romek", "A", 80);
-
-        SĘDZIA s1 = new SĘDZIA("Daro", "Lew", 3, "DwaOgnie");
-        SĘDZIA s2 = new SĘDZIA("Daro1", "Lew1", 3, "DwaOgnie1");
-
-
-        DRUZYNA d1 = new DRUZYNA("Byki", "Siatkowka Plazowa", z3, z4);
-        DRUZYNA d2 = new DRUZYNA("ZZ", "Siatkowka Plazowa", z1, z2);
-        DRUZYNA d3 = new DRUZYNA("AA", "Siatkowka Plazowa", z5, z6);
-        DRUZYNA d4 = new DRUZYNA("BB", "Siatkowka Plazowa", z7, z8);
+//
+//        SĘDZIA s1 = new SĘDZIA("Daro", "Lew", 3, "Siatkowka_Plazowa");
+//        SĘDZIA s2 = new SĘDZIA("Daro1", "Lew1", 3, "Przeciaganie_Liny");
+//
+//
+//        DRUZYNA d1 = new DRUZYNA("Byki", "Siatkowka_Plazowa", z3, z4);
+//        DRUZYNA d2 = new DRUZYNA("ZZ", "Siatkowka_Plazowa", z1, z2);
+//        DRUZYNA d3 = new DRUZYNA("AA", "Siatkowka_Plazowa", z5, z6);
+//        DRUZYNA d4 = new DRUZYNA("BB", "Siatkowka_Plazowa", z7, z8);
 
 //
 //        MeczDwaOgnie m1 = new MeczDwaOgnie(d1, d2, s1);
@@ -42,19 +42,19 @@ public class Main {
 //        //odtad domin!!
         TURNIEJ turniej = new TURNIEJ();
         //MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa();
-        turniej.dodajDruzyne(d1);
-        turniej.dodajDruzyne(d2);
-        turniej.dodajDruzyne(d3);
-        turniej.dodajDruzyne(d4);
+//        turniej.dodajDruzyne(d1);
+//        turniej.dodajDruzyne(d2);
+//        turniej.dodajDruzyne(d3);
+//        turniej.dodajDruzyne(d4);
         //turniej.WyswietlRanknig();
-        turniej.dodajSedziego(s1);
-        turniej.dodajSedziego(s2);
+//        turniej.dodajSedziego(s1);
+//        turniej.dodajSedziego(s2);
 //
 
 
         String nazwadruzyny, imieZawodnika, nazwiskoZawodnika, dziedzinaSportowaDruzyny, imieSedziego, nazwiskoSedziego, dyscyplinaSedziego;
         Scanner sc = new Scanner(System.in);
-        int wybor = 0, ktoraDoUsuniecia1 = 0, index2=0, licznikIndex1=0, licznikIndex2=0;
+        int wybor = 0, ktoraDoUsuniecia1 = 0, index2 = 0, licznikIndex1 = 0, licznikIndex2 = 0;
         int numerZawodnika = 0, numerSedziego = 0;
         System.out.println("Wybierz opcje");
 
@@ -188,34 +188,33 @@ public class Main {
                                 while (wybor != 4) {
                                     switch (wybor) {
                                         case 1:
-                                            for (DRUZYNA druzyna: turniej.Druzyny) {
+                                            for (DRUZYNA druzyna : turniej.Druzyny) {
                                                 licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
-                                                if(druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
-                                                {
+                                                if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa")) {
 //
-                                                    for (int i = licznikIndex1+1; i < turniej.Druzyny.size(); i++) {
-                                                      if(turniej.Druzyny.get(i).DziedzinaSportowa.equals("Siatkowka_Plazowa")){
-                                                          MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(turniej.Druzyny.get(licznikIndex1),turniej.Druzyny.get(i), turniej.Sedziowie_SiatkowkaPlazowa);
+                                                    for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
+                                                        if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Siatkowka_Plazowa")) {
+                                                            MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(turniej.Druzyny.get(licznikIndex1), turniej.Druzyny.get(i), turniej.Sedziowie_SiatkowkaPlazowa);
 
-                                                          System.out.println("Druzyna "+ licznikIndex1+  "vs "+  " Druzyna " +i + "Sędzia głwóny:"+meczSiatkowkaPlazowa.sedzia1.Imie+"Sędzia liniowy 1:"+meczSiatkowkaPlazowa.sedzia2.Imie+"Sędzia liniowy 2:"+meczSiatkowkaPlazowa.sedzia3.Imie);
-                                                          System.out.println(meczSiatkowkaPlazowa.wynikd1 + " " + meczSiatkowkaPlazowa.wynikd2);
+                                                            System.out.println("Druzyna:  " + turniej.Druzyny.get(licznikIndex1).NazwaDruzyny + " vs " + " Druzyna " + turniej.Druzyny.get(i).NazwaDruzyny + " Sędzia głwóny: " + meczSiatkowkaPlazowa.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa.sedzia3.Imie);
+                                                            System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
                                                         }
                                                     }
                                                 }
                                             }
-
-
                                             System.out.println("Tabela punktów drużyn po fazie grupowej");
-                                            for (DRUZYNA druzyny:turniej.Druzyny) {
-                                                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
+                                            for (DRUZYNA druzyny : turniej.Druzyny) {
+                                                if (druzyny.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
+                                                    System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
                                             }
-
-
                                             break;
                                         case 2:
-
+                                            System.out.println("many dran");
+                                            turniej.rozegrajPolfinal();
                                             break;
                                         case 3:
+                                            System.out.println("many jednak nie jest draniem");
+                                            turniej.rozegrajFinal();
                                             break;
                                         case 4:
                                             break;
@@ -223,75 +222,81 @@ public class Main {
                                     break;
                                 }
                                 break;
-                         case 2:
+                            case 2:
 
-                            System.out.println("1. Rozegraj faze grupową");
-                            System.out.println("2. Rozegraj półfinały");
-                            System.out.println("3. Rozegraj finał");
-                            System.out.println("4. Wyjdz");
-                            wybor = sc.nextInt();
-                            while (wybor != 4) {
-                                switch (wybor) {
-                                    case 1:
-                                        for (DRUZYNA druzyna : turniej.Druzyny) {
-                                            licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
-                                            if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie")) {
+                                System.out.println("1. Rozegraj faze grupową");
+                                System.out.println("2. Rozegraj półfinały");
+                                System.out.println("3. Rozegraj finał");
+                                System.out.println("4. Wyjdz");
+                                wybor = sc.nextInt();
+                                while (wybor != 4) {
+                                    switch (wybor) {
+                                        case 1:
+                                            for (DRUZYNA druzyna : turniej.Druzyny) {
+                                                licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
+                                                if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie")) {
 //
-                                                for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
-                                                    if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie")) {
-                                                        MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(turniej.Druzyny.get(licznikIndex1),turniej.Druzyny.get(i), turniej.Sedziowie_DwaOgnie);
+                                                    for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
+                                                        if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie")) {
+                                                            MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(turniej.Druzyny.get(licznikIndex1), turniej.Druzyny.get(i), turniej.Sedziowie_DwaOgnie);
 
-                                                        System.out.println("Druzyna "+ licznikIndex1+  "vs "+  " Druzyna " +i+"Sędzia który sędziował: "+meczDwaOgnie.sedzia1.Imie );
-                                                        System.out.println(meczDwaOgnie.wynikd1 + " " + meczDwaOgnie.wynikd2);
+                                                            System.out.println("Druzyna " + licznikIndex1 + "vs " + " Druzyna " + i + "Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
+                                                            System.out.println(meczDwaOgnie.wynikd1 + " " + meczDwaOgnie.wynikd2);
+                                                        }
                                                     }
                                                 }
                                             }
-                                        }
 
-                                        System.out.println("Tabela punktów drużyn po fazie grupowej");
-                                        for (DRUZYNA druzyny : turniej.Druzyny) {
-                                            System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
-                                        }
-                                        break;
+                                            System.out.println("Tabela punktów drużyn po fazie grupowej");
+                                            for (DRUZYNA druzyny : turniej.Druzyny) {
+                                                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
+                                            }
+                                            break;
+                                    }
+                                    break;
+
                                 }
-                        break;
+
+                            case 3:
+                                System.out.println("1. Rozegraj faze grupową");
+                                System.out.println("2. Rozegraj półfinały");
+                                System.out.println("3. Rozegraj finał");
+                                System.out.println("4. Wyjdz");
+                                wybor = sc.nextInt();
+                                while (wybor != 4) {
+                                    switch (wybor) {
+                                        case 1:
+
+                                            for (DRUZYNA druzyna : turniej.Druzyny) {
+                                                licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
+                                                if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny")) {
+//
+                                                    for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
+                                                        if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Przeciaganie_Liny")) {
+                                                            MeczPrzeciaganieLiny meczPrzeciaganieLiny = new MeczPrzeciaganieLiny(turniej.Druzyny.get(licznikIndex1), turniej.Druzyny.get(i), turniej.Sedziowie_PrzeciaganieLiny);
+
+                                                            System.out.println("Druzyna " + licznikIndex1 + "vs " + " Druzyna " + i + "Sędzia: " + meczPrzeciaganieLiny.sedzia1.Imie);
+                                                            System.out.println(meczPrzeciaganieLiny.wynikd1 + " " + meczPrzeciaganieLiny.wynikd2);
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            System.out.println("Tabela punktów drużyn po fazie grupowej");
+                                            for (DRUZYNA druzyny : turniej.Druzyny) {
+                                                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
+                                            }
+                                            break;
+
+                                    }
+                                    break;
+                                }
+
+
+                        }
 
                     }
-
-             case 3:
-                 System.out.println("1. Rozegraj faze grupową");
-                 System.out.println("2. Rozegraj półfinały");
-                 System.out.println("3. Rozegraj finał");
-                 System.out.println("4. Wyjdz");
-                 wybor = sc.nextInt();
-                 while (wybor != 4) {
-                     switch (wybor) {
-                         case 1:
-
-                         for (DRUZYNA druzyna : turniej.Druzyny) {
-                             licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
-                             if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny")) {
-//
-                                 for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
-                                     if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Przeciaganie_Liny")) {
-                                         MeczPrzeciaganieLiny meczPrzeciaganieLiny = new MeczPrzeciaganieLiny(turniej.Druzyny.get(licznikIndex1), turniej.Druzyny.get(i), turniej.Sedziowie_PrzeciaganieLiny);
-
-                                         System.out.println("Druzyna " + licznikIndex1 + "vs " + " Druzyna " + i + "Sędzia: " + meczPrzeciaganieLiny.sedzia1.Imie);
-                                         System.out.println(meczPrzeciaganieLiny.wynikd1 + " " + meczPrzeciaganieLiny.wynikd2);
-                                     }
-                                 }
-                             }
-                         }
-
-                         System.out.println("Tabela punktów drużyn po fazie grupowej");
-                         for (DRUZYNA druzyny : turniej.Druzyny) {
-                             System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
-                         }
-                         break;
-                     }
+            }
         }
-
-
-   }
-
-}}}}}
+    }
+}

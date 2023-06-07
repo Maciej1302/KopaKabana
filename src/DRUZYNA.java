@@ -21,4 +21,16 @@ public class DRUZYNA {
     public DRUZYNA() {
 
     }
+
+    public DRUZYNA(int punkty) {
+        Punkty = punkty;
+    }
+
+    public int getPunkty() {
+        return Punkty;
+    }
+
+    public void setPunkty(int punkty) {
+        Punkty = punkty;
+    }
 }
