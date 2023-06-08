@@ -14,8 +14,7 @@ public class MeczDwaOgnie {
         this.druzyna2=druzyna2;
 
         Random liczba = new Random();
-        int l;
-        l = liczba.nextInt(lista.size());// nie wiem czy nie -1
+        int l = liczba.nextInt(lista.size());
         this.sedzia1 = lista.get(l);
 //        Random liczba= new Random();
         Random liczba1= new Random();

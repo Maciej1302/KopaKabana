@@ -193,6 +193,30 @@ public class TURNIEJ {
     }
     private int m1=0, m2=3;
 
+    public void rozegrajFazeGrupowaSiatkowka()
+    {
+        int licznikIndex1 = 0;
+        for (DRUZYNA druzyna : Druzyny) {
+
+            if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa")) {
+                licznikIndex1 = Druzyny.indexOf(druzyna);
+                for (int i = licznikIndex1 + 1; i < Druzyny.size(); i++) {
+                    if (Druzyny.get(i).DziedzinaSportowa.equals("Siatkowka_Plazowa")) {
+                        MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(Druzyny.get(licznikIndex1), Druzyny.get(i), Sedziowie_SiatkowkaPlazowa);
+
+                        System.out.println("Druzyna:  " + Druzyny.get(licznikIndex1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia głwóny: " + meczSiatkowkaPlazowa.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa.sedzia3.Imie);
+                        System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
+                    }
+                }
+            }
+        }
+        System.out.println("Tabela punktów drużyn po fazie grupowej");
+        for (DRUZYNA druzyny : Druzyny) {
+            if (druzyny.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
+                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
+        }
+
+    }
     public void rozegrajPolfinal(){
         Collections.sort(Druzyny, new PorownywaniePunktow());
 
@@ -240,12 +264,30 @@ public class TURNIEJ {
 
             }
         }
+    }
+public void rozegrajFazeGrupowaDwaOgnie()
+{
+    int licznikIndex1 = 0;
+    for (DRUZYNA druzyna : Druzyny) {
+        licznikIndex1 = Druzyny.indexOf(druzyna);
+        if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie")) {
+//
+            for (int i = licznikIndex1 + 1; i < Druzyny.size(); i++) {
+                if (Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie")) {
+                    MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(Druzyny.get(licznikIndex1), Druzyny.get(i), Sedziowie_DwaOgnie);
 
-
-
-
-
+                    System.out.println("Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + "vs " + " Druzyna " + i + "Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
+                    System.out.println(meczDwaOgnie.wynikd1 + " " + meczDwaOgnie.wynikd2);
+                }
             }
+        }
+    }
 
+    System.out.println("Tabela punktów drużyn po fazie grupowej");
+    for (DRUZYNA druzyny : Druzyny) {
+        System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
+    }
+
+}
 
     }
