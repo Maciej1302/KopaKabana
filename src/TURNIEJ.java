@@ -263,6 +263,7 @@ public class TURNIEJ {
                 }
 
             }
+            break;
         }
     }
 public void rozegrajFazeGrupowaDwaOgnie()
