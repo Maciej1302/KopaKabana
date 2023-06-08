@@ -189,9 +189,9 @@ public class Main {
                                     switch (wybor) {
                                         case 1:
                                             for (DRUZYNA druzyna : turniej.Druzyny) {
-                                                licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
+
                                                 if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa")) {
-//
+                                                    licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
                                                     for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
                                                         if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Siatkowka_Plazowa")) {
                                                             MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(turniej.Druzyny.get(licznikIndex1), turniej.Druzyny.get(i), turniej.Sedziowie_SiatkowkaPlazowa);
@@ -210,18 +210,26 @@ public class Main {
                                             break;
                                         case 2:
                                             System.out.println("many dran");
+                                            System.out.println("wybor to:" +wybor);
                                             turniej.rozegrajPolfinal();
                                             break;
+
                                         case 3:
                                             System.out.println("many jednak nie jest draniem");
                                             turniej.rozegrajFinal();
+
                                             break;
                                         case 4:
+                                            break;
+                                        default:
+                                            System.out.println("Wybrales zly numer, podaj numer jeszcze raz");
                                             break;
                                     }
                                     break;
                                 }
-                                break;
+                                    break;
+
+
                             case 2:
 
                                 System.out.println("1. Rozegraj faze grupową");

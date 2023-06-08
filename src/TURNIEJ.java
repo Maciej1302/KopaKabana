@@ -16,6 +16,7 @@ public class TURNIEJ {
     public ArrayList<SĘDZIA> Sedziowie_SiatkowkaPlazowa = new ArrayList<>();
     public ArrayList<SĘDZIA> Sedziowie_PrzeciaganieLiny = new ArrayList<>();
     public DRUZYNA d1, d2;
+    private int index1=0, index2=0;
     public TURNIEJ() {
     }
     public void dodajDruzyne(DRUZYNA s) {
@@ -226,11 +227,25 @@ public class TURNIEJ {
         for (DRUZYNA druzyna: Druzyny) {
             System.out.println("many many ");
             if(druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty()==-2){
-                MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(Druzyny.get(0),Druzyny.get(1), Sedziowie_SiatkowkaPlazowa);
-                System.out.println("Druzyna:  "+ Druzyny.get(0).NazwaDruzyny+  " vs "+  " Druzyna " +Druzyny.get(1).NazwaDruzyny + " Sędzia głwóny: "+meczSiatkowkaPlazowa.sedzia1.Imie+" Sędzia liniowy 1 :"+meczSiatkowkaPlazowa.sedzia2.Imie+" Sędzia liniowy 2 :"+meczSiatkowkaPlazowa.sedzia3.Imie);
-                System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
+                index1 = Druzyny.indexOf(druzyna);
+                for (int i = index1+1; i < Druzyny.size(); i++) {
+                    if(druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty()==-2) {
+
+                        MeczSiatkowkaPlazowa meczSiatkowkaPlazowa5 = new MeczSiatkowkaPlazowa(Druzyny.get(index1), Druzyny.get(i), Sedziowie_SiatkowkaPlazowa);
+                        System.out.println("Druzyna:  " + Druzyny.get(index1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia głwóny: " + meczSiatkowkaPlazowa5.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa5.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa5.sedzia3.Imie);
+                        System.out.println(meczSiatkowkaPlazowa5.wynikd1 + " : " + meczSiatkowkaPlazowa5.wynikd2);
+                        break;
+                    }
+                }
+
             }
         }
-    }
+
+
+
+
+
+            }
+
 
     }

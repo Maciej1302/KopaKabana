@@ -13,7 +13,8 @@ public class MeczSiatkowkaPlazowa {
     {
         this.druzyna1=druzyna1;
         this.druzyna2=druzyna2;
-        Random liczba = new Random();
+
+                Random liczba = new Random();
         int l;
         l = liczba.nextInt(lista.size());// nie wiem czy nie -1
         this.sedzia1 = lista.get(l);
