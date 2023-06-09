@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SĘDZIA extends OSOBA{
+public class SĘDZIA extends OSOBA implements Serializable {
     public int NumerSędziego;
     public String DziedzinaSportowa;
     public ArrayList<SĘDZIA> Sędziowie;

@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class DRUZYNA {
+public class DRUZYNA implements Serializable {
     public String NazwaDruzyny;
     public String DziedzinaSportowa;
     public ZAWODNIK zawodnik1,zawodnik2;

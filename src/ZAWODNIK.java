@@ -1,4 +1,6 @@
-public class ZAWODNIK extends OSOBA{
+import java.io.Serializable;
+
+public class ZAWODNIK extends OSOBA implements Serializable {
     public int NumerZawodnika;
     public ZAWODNIK(String imie,String nazwisko, int nr)
     {

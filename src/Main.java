@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.io.Serializable;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -5,8 +7,8 @@ import java.util.logging.SocketHandler;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
-public class Main {
-    public static void main(String[] args) {
+public class Main implements Serializable {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         ZAWODNIK z1 = new ZAWODNIK("Maciuśtodran1111", "R", 13);
 
         ZAWODNIK z2 = new ZAWODNIK("Ulcia", "R", 4);
@@ -17,8 +19,8 @@ public class Main {
         ZAWODNIK z7 = new ZAWODNIK("Domiś", "Ż", 23);
         ZAWODNIK z8 = new ZAWODNIK("Romek", "A", 80);
 //
-        SĘDZIA s1 = new SĘDZIA("Daro", "Lew", 3, "Siatkowka_Plazowa");
-        SĘDZIA s2 = new SĘDZIA("Daro1", "Lew1", 3, "Przeciaganie_Liny");
+       // SĘDZIA s1 = new SĘDZIA("Daro", "Lew", 3, "Siatkowka_Plazowa");
+        //SĘDZIA s2 = new SĘDZIA("Daro1", "Lew1", 3, "Przeciaganie_Liny");
 //
 //
         DRUZYNA d1 = new DRUZYNA("Byki", "Siatkowka_Plazowa", z3, z4);
@@ -66,8 +68,8 @@ public class Main {
         turniej.dodajDruzyne(d11);
         turniej.dodajDruzyne(d12);
         //turniej.WyswietlRanknig();
-        turniej.dodajSedziego(s1);
-        turniej.dodajSedziego(s2);
+        //turniej.dodajSedziego(s1);
+        //turniej.dodajSedziego(s2);
 //
 
 
@@ -168,7 +170,9 @@ public class Main {
                                 break;
 
                             case 2:
-                                turniej.wczytajSędziówZPliku();
+                               //turniej.wczytajSędziówZPliku();
+                               //turniej.zapis_stanu_sedziow_druzyn();
+                                turniej.wczytanie_stanu_sedziow_druzyn();
                                 break;
 
                             case 3:
@@ -204,7 +208,7 @@ public class Main {
                                 System.out.println("3. Rozegraj finał");
                                 System.out.println("4. Wyjdz");
                                 wybor = sc.nextInt();
-                                while (wybor != 4) {
+                                while (wybor != 5) {
                                     switch (wybor) {
                                         case 1:
                                             turniej.rozegrajFazeGrupowaSiatkowka();
@@ -212,12 +216,12 @@ public class Main {
                                         case 2:
                                             System.out.println("many dran");
                                             System.out.println("wybor to:" + wybor);
-                                            turniej.rozegrajPolfinal();
+                                            turniej.rozegrajPolfinalSiatkowka();
                                             break;
 
                                         case 3:
                                             System.out.println("many jednak nie jest draniem");
-                                            turniej.rozegrajFinal();
+                                            turniej.rozegrajFinalSiatkowka();
                                             break;
                                         case 4:
                                             break;

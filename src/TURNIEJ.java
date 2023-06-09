@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.io.*;
 
 
-public class TURNIEJ {
+public class TURNIEJ  {
     public ArrayList<DRUZYNA> Druzyny = new ArrayList<>();
     public ArrayList<SĘDZIA> sedziowie = new ArrayList<>();
     public ArrayList<SĘDZIA> Sedziowie_DwaOgnie = new ArrayList<>();
@@ -12,7 +12,7 @@ public class TURNIEJ {
     public ArrayList<SĘDZIA> Sedziowie_SiatkowkaPlazowa = new ArrayList<>();
     public ArrayList<SĘDZIA> Sedziowie_PrzeciaganieLiny = new ArrayList<>();
     private int index1 = 0, index2 = 0;
-a
+
     public TURNIEJ() {}
 
     public void dodajDruzyne(DRUZYNA s) {
@@ -391,6 +391,50 @@ int i = 0;
         System.out.println("Przeciąganie Liny:");
         tabelaWynikowPrzeciaganieLiny();
     }
+
+    public void zapis_stanu_sedziow_druzyn() throws IOException {
+        FileOutputStream fosS = new FileOutputStream("Sedziowiezapis.txt");
+        ObjectOutputStream oosS = new ObjectOutputStream(fosS);
+        oosS.writeObject(Sedziowie_DwaOgnie);
+        oosS.close();
+        fosS.close();
+
+        System.out.println("Pomyślnie zapisano stan sędziów i drużyn");
+    }
+    public void wczytanie_stanu_sedziow_druzyn() throws IOException, ClassNotFoundException {
+        FileInputStream fisS =new FileInputStream("Sedziowiezapis.txt");
+
+        ObjectInputStream oisS = new ObjectInputStream(fisS);
+
+
+        sedziowie = (ArrayList<SĘDZIA>) oisS.readObject();
+
+        System.out.println("Pomyślnie wczytano stan sędziów i drużyn");
+
+        for (SĘDZIA sędzia: sedziowie) {
+            System.out.println(sędzia.Imie+" "+ sędzia.Nazwisko+" "+sędzia.DziedzinaSportowa+" "+sędzia.NumerSędziego);
+
+        }
+
+        oisS.close();
+
+        fisS.close();
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
