@@ -12,7 +12,7 @@ public class TURNIEJ {
     public ArrayList<SĘDZIA> Sedziowie_SiatkowkaPlazowa = new ArrayList<>();
     public ArrayList<SĘDZIA> Sedziowie_PrzeciaganieLiny = new ArrayList<>();
     private int index1 = 0, index2 = 0;
-
+a
     public TURNIEJ() {}
 
     public void dodajDruzyne(DRUZYNA s) {
