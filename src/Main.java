@@ -8,7 +8,7 @@ import java.util.logging.SocketHandler;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main implements Serializable {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws Exception {
         ZAWODNIK z1 = new ZAWODNIK("MaciuśULKOWDRAN", "R", 13);
 
         ZAWODNIK z2 = new ZAWODNIK("Ulcia", "R", 4);
@@ -181,9 +181,9 @@ public class Main implements Serializable {
                                 break;
 
                             case 2:
-                                turniej.wczytajSędziówZPliku();
-                                turniej.zapis_stanu_sedziow_druzyn();
-//                                turniej.wczytanie_stanu_sedziow_druzyn();
+                               // turniej.wczytajSędziówZPliku();
+                                 //turniej.zapis_stanu_sedziow_druzyn();
+                               turniej.wczytanie_stanu_sedziow_druzyn();
                                 break;
 
                             case 3:
@@ -238,6 +238,7 @@ public class Main implements Serializable {
                                             turniej.rozegrajPolfinal(1);
                                             break;
                                         case 3:
+
                                             turniej.rozegrajFinal(1);
                                             break;
                                         case 4:

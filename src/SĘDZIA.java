@@ -11,6 +11,7 @@ public class SĘDZIA extends OSOBA implements Serializable {
         this.NumerSędziego=NumerSędziego;
         this.DziedzinaSportowa=Dziedzina;
     }
+
     public void dodajSędziego(SĘDZIA sędzia)
     {
         Sędziowie.add(sędzia);

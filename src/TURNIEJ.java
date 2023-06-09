@@ -265,8 +265,10 @@ if(n == 1) {
 
     public void rozegrajFinal(int n) {
        if(n == 1){
+           System.out.println("dziala23");
         for (DRUZYNA druzyna : Druzyny) {
             if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty() == -2) {
+                System.out.println("dziala789");
                 index1 = Druzyny.indexOf(druzyna);
                 for (int i = index1 + 1; i < Druzyny.size(); i++) {
                     if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && Druzyny.get(i).getPunkty() == -2) {
@@ -379,48 +381,42 @@ if(n == 1) {
         System.out.println("Przeciąganie Liny:");
         tabelaWynikowPrzeciaganieLiny();
     }
+    File SedziowieZapis = new File("Sedziatest.txt");
+    public void zapis_stanu_sedziow_druzyn() throws Exception {
 
-    public void zapis_stanu_sedziow_druzyn() throws IOException {
-        FileOutputStream fosS = new FileOutputStream("Sedziowiezapis.txt");
-        ObjectOutputStream oosS = new ObjectOutputStream(fosS);
-        oosS.writeObject(Sedziowie_DwaOgnie);
-        oosS.close();
-        fosS.close();
+        ObjectOutputStream zapis = new ObjectOutputStream(new FileOutputStream(SedziowieZapis));
+        for (DRUZYNA druzyna: Druzyny) {
+            zapis.writeObject(druzyna);
+        }
 
         System.out.println("Pomyślnie zapisano stan sędziów i drużyn");
     }
-    public void wczytanie_stanu_sedziow_druzyn() throws IOException, ClassNotFoundException {
-        FileInputStream fisS =new FileInputStream("Sedziowiezapis.txt");
+    public void wczytanie_stanu_sedziow_druzyn() throws Exception {
+        ObjectInputStream odczyt = new ObjectInputStream(new FileInputStream(SedziowieZapis));
 
-        ObjectInputStream oisS = new ObjectInputStream(fisS);
+        while (true) {
+            try {
+                Object obj = odczyt.readObject();
+                Druzyny.add((DRUZYNA) obj);
+            }
+            catch (EOFException e){
+                break;
+            }
 
-
-        sedziowie = (ArrayList<SĘDZIA>) oisS.readObject();
-
-        System.out.println("Pomyślnie wczytano stan sędziów i drużyn");
-
-        System.out.println(sedziowie.toString());
-
-        oisS.close();
-
-        fisS.close();
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
+        }
+        for (DRUZYNA druzyna: Druzyny) {
+            System.out.println(druzyna.zawodnik1.Imie+" "+druzyna.zawodnik2.getNazwisko()+" "+ druzyna.DziedzinaSportowa+" "+druzyna.NazwaDruzyny);
+        }
+        System.out.println("Pomyślnie odczytano stan sędziów i drużyn");
 
 
     }
+
+
+
+
+
+}
 
 
 

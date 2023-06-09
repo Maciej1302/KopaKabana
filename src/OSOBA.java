@@ -1,4 +1,6 @@
-public class OSOBA {
+import java.io.Serializable;
+
+public class OSOBA implements Serializable {
     public String Imie;
     public String Nazwisko;
 
@@ -9,5 +11,21 @@ public class OSOBA {
 //tutaj domin
     public OSOBA() {
 
+    }
+
+    public String getImie() {
+        return Imie;
+    }
+
+    public void setImie(String imie) {
+        Imie = imie;
+    }
+
+    public String getNazwisko() {
+        return Nazwisko;
+    }
+
+    public void setNazwisko(String nazwisko) {
+        Nazwisko = nazwisko;
     }
 }
