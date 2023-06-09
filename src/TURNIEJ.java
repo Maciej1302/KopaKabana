@@ -1,52 +1,24 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Scanner;
 import java.io.*;
 
 
 public class TURNIEJ {
-    public ArrayList<Integer> WynikiDruzynDwaOgnie = new ArrayList<>();
-    public ArrayList<Integer> WynikiDruzynSiata = new ArrayList<>();
-    public ArrayList<Integer> WynikiDruzynPrzeciaganieLiny = new ArrayList<>();
     public ArrayList<DRUZYNA> Druzyny = new ArrayList<>();
     public ArrayList<SĘDZIA> sedziowie = new ArrayList<>();
     public ArrayList<SĘDZIA> Sedziowie_DwaOgnie = new ArrayList<>();
 
     public ArrayList<SĘDZIA> Sedziowie_SiatkowkaPlazowa = new ArrayList<>();
     public ArrayList<SĘDZIA> Sedziowie_PrzeciaganieLiny = new ArrayList<>();
-    public DRUZYNA d1, d2;
-    private int index1=0, index2=0;
-    public TURNIEJ() {
-    }
+    private int index1 = 0, index2 = 0;
+
+    public TURNIEJ() {}
+
     public void dodajDruzyne(DRUZYNA s) {
         Druzyny.add(s);
     }
 
-
-    public void WyswietlRanknig() {
-
-
-        for (DRUZYNA druzyna : Druzyny) {
-            if (druzyna.DziedzinaSportowa.equals("SiatkowkaPlazowa")) {
-                WynikiDruzynSiata.add(druzyna.Punkty);
-
-            }
-            if (druzyna.DziedzinaSportowa.equals("DwaOgnie")) {
-                WynikiDruzynDwaOgnie.add(druzyna.Punkty);
-            }
-            if (druzyna.DziedzinaSportowa.equals("PrzeciaganieLiny")) {
-                WynikiDruzynPrzeciaganieLiny.add(druzyna.Punkty);
-            }
-
-        }
-//       Collections.sort(WynikiDruzynPrzeciaganieLiny,Collections.reverseOrder());
-//       Collections.sort(WynikiDruzynDwaOgnie,Collections.reverseOrder());
-        Collections.sort(WynikiDruzynSiata, Collections.reverseOrder());
-        System.out.println(WynikiDruzynSiata);
-
-
-    }
 
     //tutaj domin
     public void przegladajDruzyny() {
@@ -55,11 +27,9 @@ public class TURNIEJ {
         }
     }
 
-    public void wycofajDruzyne(int ktoraDoUsuniecia)
-    {
-        for (DRUZYNA druzyna: Druzyny) {
-            if(Druzyny.indexOf(druzyna)  == ktoraDoUsuniecia)
-            {
+    public void wycofajDruzyne(int ktoraDoUsuniecia) {
+        for (DRUZYNA druzyna : Druzyny) {
+            if (Druzyny.indexOf(druzyna) == ktoraDoUsuniecia) {
                 Druzyny.remove(druzyna);
             }
         }
@@ -67,13 +37,12 @@ public class TURNIEJ {
 
     //SĘDZIOWIE
 
-    public void dodajSedziego(SĘDZIA sędzia)
-    {
-        if(sędzia.DziedzinaSportowa.equals("Dwa_Ognie"))
+    public void dodajSedziego(SĘDZIA sędzia) {
+        if (sędzia.DziedzinaSportowa.equals("Dwa_Ognie"))
             Sedziowie_DwaOgnie.add(sędzia);
-        else if(sędzia.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
+        else if (sędzia.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
             Sedziowie_SiatkowkaPlazowa.add(sędzia);
-        else if(sędzia.DziedzinaSportowa.equals("Przeciaganie_Liny"))
+        else if (sędzia.DziedzinaSportowa.equals("Przeciaganie_Liny"))
             Sedziowie_PrzeciaganieLiny.add(sędzia);
         else {
             System.out.println("Błąd");
@@ -81,43 +50,30 @@ public class TURNIEJ {
         }
         sedziowie.add(sędzia);
     }
-    public void przegladajSedziow(){
-        for (SĘDZIA sedzia: sedziowie) {
-            System.out.println("Sędzia nr: "+ sedziowie.indexOf(sedzia) + "\n" + "Imie : " + sedzia.Imie + "\n" + "Nazwisko : " +sedzia.Nazwisko + "\n" + "Numer : " + sedzia.NumerSędziego + "\n" + "Dyscyplina : "+ sedzia.DziedzinaSportowa);
+
+    public void przegladajSedziow() {
+        for (SĘDZIA sedzia : sedziowie) {
+            System.out.println("Sędzia nr: " + sedziowie.indexOf(sedzia) + "\n" + "Imie : " + sedzia.Imie + "\n" + "Nazwisko : " + sedzia.Nazwisko + "\n" + "Numer : " + sedzia.NumerSędziego + "\n" + "Dyscyplina : " + sedzia.DziedzinaSportowa);
 
         }
     }
-    public void usunSedziego(int ktorySedzia){
-        for (SĘDZIA sedzia: sedziowie)
-        {
-            if(sedziowie.indexOf(sedzia) == ktorySedzia){
+
+    public void usunSedziego(int ktorySedzia) {
+        for (SĘDZIA sedzia : sedziowie) {
+            if (sedziowie.indexOf(sedzia) == ktorySedzia) {
                 sedziowie.remove(sedzia);
             }
 
         }
     }
 
-    //rozgrywanie meczy
-
-    //rozgrywanie fazygrupowej
-    public void rozegrajMecz(DRUZYNA druzyna1, DRUZYNA druzyna2){
-
-
-    }
-    public void rozegrajFazeGrupowa(DRUZYNA druzyna1, DRUZYNA druzyna2){
-
-    }
-    //wczytywanie z pliku
-
-
-    public void wczytajSędziówZPliku()
-    {
+    public void wczytajSędziówZPliku() {
         System.out.println("Podaj nazwę pliku z sędziami: ");
         Scanner sc = new Scanner(System.in);
         String nazwa;
         nazwa = sc.next();
 
-        try{
+        try {
             Scanner scanner = new Scanner(new File(nazwa));
             //String nazwaObiektu;
             String imie;
@@ -125,8 +81,7 @@ public class TURNIEJ {
             int nr;
             String dziedzina;
 
-            while(scanner.hasNext())
-            {
+            while (scanner.hasNext()) {
                 //nazwaObiektu = scanner.next();
                 imie = scanner.next();
                 nazwisko = scanner.next();
@@ -138,21 +93,19 @@ public class TURNIEJ {
             }
 
 
-        }catch(FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("Nie udało sie otworzyc pliku.");
         }
     }
 
-    public void wczytajDrużynyZPliku()
-    {
+    public void wczytajDrużynyZPliku() {
 
         System.out.println("Podaj nazwę pliku z drużynami. ");
         Scanner sc = new Scanner(System.in);
         String nazwa;
         nazwa = sc.next();
 
-        try{
+        try {
             Scanner scanner = new Scanner(new File(nazwa));
             //String nazwaObiektu;
             String nazwaDruzyny;
@@ -166,8 +119,7 @@ public class TURNIEJ {
             String nazwisko2;
             int nr2;
 
-            while(scanner.hasNext())
-            {
+            while (scanner.hasNext()) {
                 //nazwaObiektu = scanner.next();
                 nazwaDruzyny = scanner.next();
                 dziedzina = scanner.next();
@@ -175,7 +127,7 @@ public class TURNIEJ {
                 imie1 = scanner.next();
                 nazwisko1 = scanner.next();
                 nr1 = scanner.nextInt();
-               // nazwaZawodnika2 = scanner.next();
+                // nazwaZawodnika2 = scanner.next();
                 imie2 = scanner.next();
                 nazwisko2 = scanner.next();
                 nr2 = scanner.nextInt();
@@ -185,16 +137,15 @@ public class TURNIEJ {
                 DRUZYNA druzyna = new DRUZYNA(nazwaDruzyny, dziedzina, zawodnik1, zawodnik2);
                 Druzyny.add(druzyna);
             }
-        }catch(FileNotFoundException e)
-    {
-        System.out.println("Nie udało sie otworzyc pliku.");
-    }
+        } catch (FileNotFoundException e) {
+            System.out.println("Nie udało sie otworzyc pliku.");
+        }
 
     }
-    private int m1=0, m2=3;
 
-    public void rozegrajFazeGrupowaSiatkowka()
-    {
+    private int m1 = 0, m2 = 3;
+
+    public void rozegrajFazeGrupowaSiatkowka() {
         int licznikIndex1 = 0;
         for (DRUZYNA druzyna : Druzyny) {
 
@@ -210,50 +161,38 @@ public class TURNIEJ {
                 }
             }
         }
-        System.out.println("Tabela punktów drużyn po fazie grupowej");
-        for (DRUZYNA druzyny : Druzyny) {
-            if (druzyny.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
-                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
-        }
+        System.out.println("Tabela punktów drużyn po fazie grupowej dla siatkówki plażowej: ");
+        tabelaWynikowSiatkowka();
 
     }
-    public void rozegrajPolfinal(){
+
+    public void rozegrajPolfinalSiatkowka() {
         Collections.sort(Druzyny, new PorownywaniePunktow());
 
         for (DRUZYNA druzyna : Druzyny) {
 
-            if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && Druzyny.indexOf(druzyna) <=1 ) {
-                MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(Druzyny.get(m1),Druzyny.get(m2), Sedziowie_SiatkowkaPlazowa);
-                System.out.println("Druzyna:  "+ Druzyny.get(m1).NazwaDruzyny+  " vs "+  " Druzyna " +Druzyny.get(m2).NazwaDruzyny + " Sędzia głwóny: "+meczSiatkowkaPlazowa.sedzia1.Imie+" Sędzia liniowy 1 :"+meczSiatkowkaPlazowa.sedzia2.Imie+" Sędzia liniowy 2 :"+meczSiatkowkaPlazowa.sedzia3.Imie);
+            if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && Druzyny.indexOf(druzyna) <= 1) {
+                MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(Druzyny.get(m1), Druzyny.get(m2), Sedziowie_SiatkowkaPlazowa);
+                System.out.println("Druzyna:  " + Druzyny.get(m1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(m2).NazwaDruzyny + " Sędzia głwóny: " + meczSiatkowkaPlazowa.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa.sedzia3.Imie);
                 System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
-                if(meczSiatkowkaPlazowa.wynikd1 > meczSiatkowkaPlazowa.wynikd2)
-                {
+                if (meczSiatkowkaPlazowa.wynikd1 > meczSiatkowkaPlazowa.wynikd2) {
                     Druzyny.get(m1).setPunkty(-2);
-                }
-                else
-                {
+                } else {
                     Druzyny.get(m2).setPunkty(-2);
                 }
-
                 m1++;
                 m2--;
-
-
             }
         }
-        for (DRUZYNA druzyny :Druzyny) {
-            if(druzyny.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
-                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
-        }
+        tabelaWynikowSiatkowka();
     }
-    public void rozegrajFinal(){
-        System.out.println("manymany33");
-        for (DRUZYNA druzyna: Druzyny) {
-            System.out.println("many many ");
-            if(druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty()==-2){
+
+    public void rozegrajFinalSiatkowka() {
+        for (DRUZYNA druzyna : Druzyny) {
+            if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty() == -2) {
                 index1 = Druzyny.indexOf(druzyna);
-                for (int i = index1+1; i < Druzyny.size(); i++) {
-                    if(druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty()==-2) {
+                for (int i = index1 + 1; i < Druzyny.size(); i++) {
+                    if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty() == -2) {
 
                         MeczSiatkowkaPlazowa meczSiatkowkaPlazowa5 = new MeczSiatkowkaPlazowa(Druzyny.get(index1), Druzyny.get(i), Sedziowie_SiatkowkaPlazowa);
                         System.out.println("Druzyna:  " + Druzyny.get(index1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia głwóny: " + meczSiatkowkaPlazowa5.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa5.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa5.sedzia3.Imie);
@@ -266,29 +205,193 @@ public class TURNIEJ {
             break;
         }
     }
-public void rozegrajFazeGrupowaDwaOgnie()
-{
-    int licznikIndex1 = 0;
-    for (DRUZYNA druzyna : Druzyny) {
-        licznikIndex1 = Druzyny.indexOf(druzyna);
-        if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie")) {
-//
-            for (int i = licznikIndex1 + 1; i < Druzyny.size(); i++) {
-                if (Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie")) {
-                    MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(Druzyny.get(licznikIndex1), Druzyny.get(i), Sedziowie_DwaOgnie);
 
-                    System.out.println("Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + "vs " + " Druzyna " + i + "Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
-                    System.out.println(meczDwaOgnie.wynikd1 + " " + meczDwaOgnie.wynikd2);
+    public void rozegrajFazeGrupowaDwaOgnie() {
+        int licznikIndex1 = 0;
+        for (DRUZYNA druzyna : Druzyny) {
+            licznikIndex1 = Druzyny.indexOf(druzyna);
+            if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie")) {
+//
+                for (int i = licznikIndex1 + 1; i < Druzyny.size(); i++) {
+                    if (Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie")) {
+                        MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(Druzyny.get(licznikIndex1), Druzyny.get(i), Sedziowie_DwaOgnie);
+
+                        System.out.println("Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + "vs " + " Druzyna " + i + "Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
+                        System.out.println(meczDwaOgnie.wynikd1 + " " + meczDwaOgnie.wynikd2);
+                    }
                 }
             }
         }
-    }
 
-    System.out.println("Tabela punktów drużyn po fazie grupowej");
-    for (DRUZYNA druzyny : Druzyny) {
-        System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
-    }
-
-}
+        System.out.println("Tabela punktów drużyn po fazie grupowej dla dwóch ogni:");
+        tabelaWynikowDwaOgnie();
 
     }
+
+    public void rozegrajPolfinalDwaOgnie() {
+        System.out.println("halooooo");
+        Collections.sort(Druzyny, new PorownywaniePunktow());
+
+        for (DRUZYNA druzyna : Druzyny) {
+            if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie") && Druzyny.indexOf(druzyna) <= 1) {
+                MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(Druzyny.get(m1), Druzyny.get(m2), Sedziowie_DwaOgnie);
+                System.out.println("Druzyna:  " + Druzyny.get(m1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(m2).NazwaDruzyny + " Sędzia: " + meczDwaOgnie.sedzia1.Imie + " " + meczDwaOgnie.sedzia1.Nazwisko);
+                System.out.println(meczDwaOgnie.wynikd1 + " : " + meczDwaOgnie.wynikd2);
+                if (meczDwaOgnie.wynikd1 > meczDwaOgnie.wynikd2) {
+                    Druzyny.get(m1).setPunkty(-2);
+                } else {
+                    Druzyny.get(m2).setPunkty(-2);
+                }
+                m1++;
+                m2--;
+            }
+        }
+        tabelaWynikowDwaOgnie();
+    }
+
+    public void rozegrajfinalDwaOgnie() {
+        for (DRUZYNA druzyna : Druzyny) {
+            if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie") && druzyna.getPunkty() == -2) {
+                index1 = Druzyny.indexOf(druzyna);
+                for (int i = index1 + 1; i < Druzyny.size(); i++) {
+                    if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie") && druzyna.getPunkty() == -2) {
+
+                        MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(Druzyny.get(index1), Druzyny.get(i), Sedziowie_DwaOgnie);
+                        System.out.println("Druzyna:  " + Druzyny.get(index1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia : " + meczDwaOgnie.sedzia1.Imie + " " + meczDwaOgnie.sedzia1.Nazwisko);
+                        System.out.println(meczDwaOgnie.wynikd1 + " : " + meczDwaOgnie.wynikd2);
+                        break;
+                    }
+                }
+
+            }
+            break;
+        }
+    }
+    public void rozegrajFazeGrupowaPrzeciaganieLIiny()
+    {
+        int licznikIndex1;
+        for (DRUZYNA druzyna : Druzyny) {
+            licznikIndex1 = Druzyny.indexOf(druzyna);
+            if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny")) {
+//
+                for (int i = licznikIndex1 + 1; i < Druzyny.size(); i++) {
+                    if (Druzyny.get(i).DziedzinaSportowa.equals("Przeciaganie_Liny")) {
+                        MeczPrzeciaganieLiny meczPrzeciaganieLiny = new MeczPrzeciaganieLiny(Druzyny.get(licznikIndex1), Druzyny.get(i), Sedziowie_PrzeciaganieLiny);
+
+                        System.out.println("Druzyna " + licznikIndex1 + "vs " + " Druzyna " + i + "Sędzia: " + meczPrzeciaganieLiny.sedzia1.Imie);
+                        System.out.println(meczPrzeciaganieLiny.wynikd1 + " " + meczPrzeciaganieLiny.wynikd2);
+                    }
+                }
+            }
+        }
+
+        System.out.println("Tabela punktów drużyn po fazie grupowej dla przeciągania liny: ");
+        tabelaWynikowPrzeciaganieLiny();
+
+    }
+
+    public void rozegrajPolfinalPrzeciaganieLiny() {
+        Collections.sort(Druzyny, new PorownywaniePunktow());
+int i = 0;
+        for (DRUZYNA druzyna : Druzyny) {
+
+            if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny") && Druzyny.indexOf(druzyna) <= 1) {
+                MeczPrzeciaganieLiny meczPrzeciaganieLiny = new MeczPrzeciaganieLiny(Druzyny.get(m1), Druzyny.get(m2), Sedziowie_PrzeciaganieLiny);
+                System.out.println("Druzyna:  " + Druzyny.get(m1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(m2).NazwaDruzyny + " Sędzia: " + meczPrzeciaganieLiny.sedzia1.Imie + " " + meczPrzeciaganieLiny.sedzia1.Nazwisko);
+                System.out.println(meczPrzeciaganieLiny.wynikd1 + " : " + meczPrzeciaganieLiny.wynikd2);
+                if (meczPrzeciaganieLiny.wynikd1 > meczPrzeciaganieLiny.wynikd2) {
+                    Druzyny.get(m1).setPunkty(-2);
+                } else {
+                    Druzyny.get(m2).setPunkty(-2);
+                }
+                m1++;
+                m2--;
+            }
+        }
+        tabelaWynikowPrzeciaganieLiny();
+
+        }
+        public void rozegrajFinalPrzeciaganieLiny()
+        {
+            System.out.println("pomocy123");
+            for (DRUZYNA druzyna : Druzyny) {
+                if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny") && druzyna.getPunkty() == -2) {
+                    index1 = Druzyny.indexOf(druzyna);
+                    for (int i = index1 + 1; i < Druzyny.size(); i++) {
+                        if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny") && druzyna.getPunkty() == -2) {
+
+                            MeczPrzeciaganieLiny meczPrzeciaganieLiny = new MeczPrzeciaganieLiny(Druzyny.get(index1), Druzyny.get(i), Sedziowie_PrzeciaganieLiny);
+                            System.out.println("Druzyna:  " + Druzyny.get(index1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia : " + meczPrzeciaganieLiny.sedzia1.Imie + " " + meczPrzeciaganieLiny.sedzia1.Nazwisko);
+                            System.out.println(meczPrzeciaganieLiny.wynikd1 + " : " + meczPrzeciaganieLiny.wynikd2);
+                            break;
+                        }
+                    }
+
+                }
+                break;
+            }
+
+        }
+        public void tabelaWynikowSiatkowka()
+        {
+            ArrayList<DRUZYNA> lista = new ArrayList<>();
+            for(DRUZYNA druzyna : Druzyny)
+            {
+                if(druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa"))
+                {
+                    lista.add(druzyna);
+                }
+            }
+            Collections.sort(lista, new PorownywaniePunktow());
+            for(DRUZYNA druzyna : lista)
+            {
+                System.out.println(druzyna.NazwaDruzyny + "   " + druzyna.Punkty);
+            }
+        }
+        public void tabelaWynikowDwaOgnie()
+    {
+        ArrayList<DRUZYNA> lista = new ArrayList<>();
+        for(DRUZYNA druzyna : Druzyny)
+        {
+            if(druzyna.DziedzinaSportowa.equals("Dwa_Ognie"))
+            {
+                lista.add(druzyna);
+            }
+        }
+        Collections.sort(lista, new PorownywaniePunktow());
+        for(DRUZYNA druzyna : lista)
+        {
+            System.out.println(druzyna.NazwaDruzyny + "   " + druzyna.Punkty);
+        }
+    }
+    public void tabelaWynikowPrzeciaganieLiny()
+    {
+        {
+            ArrayList<DRUZYNA> lista = new ArrayList<>();
+            for(DRUZYNA druzyna : Druzyny)
+            {
+                if(druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny"))
+                {
+                    lista.add(druzyna);
+                }
+            }
+            Collections.sort(lista, new PorownywaniePunktow());
+            for(DRUZYNA druzyna : lista)
+            {
+                System.out.println(druzyna.NazwaDruzyny + "   " + druzyna.Punkty);
+            }
+        }
+    }
+    public void tabelaWynikow()
+    {
+        System.out.println("Siatkówka Plażowa: ");
+        tabelaWynikowSiatkowka();
+        System.out.println("Dwa Ognie: ");
+        tabelaWynikowDwaOgnie();
+        System.out.println("Przeciąganie Liny:");
+        tabelaWynikowPrzeciaganieLiny();
+    }
+    }
+
+
+
