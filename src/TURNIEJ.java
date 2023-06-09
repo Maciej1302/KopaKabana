@@ -145,7 +145,7 @@ public class TURNIEJ  {
 
     private int m1 = 0, m2 = 3;
 
-    public void rozegrajFazeGrupowaSiatkowka() {
+    public void rozegrajFazeGrupowa() {
         int licznikIndex1 = 0;
         for (DRUZYNA druzyna : Druzyny) {
 
@@ -159,10 +159,12 @@ public class TURNIEJ  {
                         System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
                     }
                 }
+                System.out.println("Tabela punktów drużyn po fazie grupowej dla siatkówki plażowej: ");
+                tabelaWynikowSiatkowka();
             }
+
         }
-        System.out.println("Tabela punktów drużyn po fazie grupowej dla siatkówki plażowej: ");
-        tabelaWynikowSiatkowka();
+
 
     }
 
@@ -192,7 +194,7 @@ public class TURNIEJ  {
             if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty() == -2) {
                 index1 = Druzyny.indexOf(druzyna);
                 for (int i = index1 + 1; i < Druzyny.size(); i++) {
-                    if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty() == -2) {
+                    if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && Druzyny.get(i).getPunkty() == -2) {
 
                         MeczSiatkowkaPlazowa meczSiatkowkaPlazowa5 = new MeczSiatkowkaPlazowa(Druzyny.get(index1), Druzyny.get(i), Sedziowie_SiatkowkaPlazowa);
                         System.out.println("Druzyna:  " + Druzyny.get(index1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia głwóny: " + meczSiatkowkaPlazowa5.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa5.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa5.sedzia3.Imie);
@@ -411,10 +413,7 @@ int i = 0;
 
         System.out.println("Pomyślnie wczytano stan sędziów i drużyn");
 
-        for (SĘDZIA sędzia: sedziowie) {
-            System.out.println(sędzia.Imie+" "+ sędzia.Nazwisko+" "+sędzia.DziedzinaSportowa+" "+sędzia.NumerSędziego);
-
-        }
+        System.out.println(sedziowie.toString());
 
         oisS.close();
 

@@ -23,20 +23,20 @@ public class Main implements Serializable {
         //SĘDZIA s2 = new SĘDZIA("Daro1", "Lew1", 3, "Przeciaganie_Liny");
 //
 //
-        DRUZYNA d1 = new DRUZYNA("Byki", "Siatkowka_Plazowa", z3, z4);
-        DRUZYNA d2 = new DRUZYNA("ZZ", "Siatkowka_Plazowa", z1, z2);
-        DRUZYNA d3 = new DRUZYNA("AA", "Siatkowka_Plazowa", z5, z6);
-        DRUZYNA d4 = new DRUZYNA("BB", "Siatkowka_Plazowa", z7, z8);
-
-        DRUZYNA d5 = new DRUZYNA("Byki", "Dwa_Ognie", z3, z4);
-        DRUZYNA d6 = new DRUZYNA("ZZ", "Dwa_Ognie", z1, z2);
-        DRUZYNA d7 = new DRUZYNA("AA", "Dwa_Ognie", z5, z6);
-        DRUZYNA d8 = new DRUZYNA("BB", "Dwa_Ognie", z7, z8);
-
-        DRUZYNA d9 = new DRUZYNA("Byki", "Przeciaganie_Liny", z3, z4);
-        DRUZYNA d10 = new DRUZYNA("ZZ", "Przeciaganie_Liny", z1, z2);
-        DRUZYNA d11 = new DRUZYNA("AA", "Przeciaganie_Liny", z5, z6);
-        DRUZYNA d12 = new DRUZYNA("BB", "Przeciaganie_Liny", z7, z8);
+//        DRUZYNA d1 = new DRUZYNA("Byki", "Siatkowka_Plazowa", z3, z4);
+//        DRUZYNA d2 = new DRUZYNA("ZZ", "Siatkowka_Plazowa", z1, z2);
+//        DRUZYNA d3 = new DRUZYNA("AA", "Siatkowka_Plazowa", z5, z6);
+//        DRUZYNA d4 = new DRUZYNA("BB", "Siatkowka_Plazowa", z7, z8);
+//
+//        DRUZYNA d5 = new DRUZYNA("Byki", "Dwa_Ognie", z3, z4);
+//        DRUZYNA d6 = new DRUZYNA("ZZ", "Dwa_Ognie", z1, z2);
+//        DRUZYNA d7 = new DRUZYNA("AA", "Dwa_Ognie", z5, z6);
+//        DRUZYNA d8 = new DRUZYNA("BB", "Dwa_Ognie", z7, z8);
+//
+//        DRUZYNA d9 = new DRUZYNA("Byki", "Przeciaganie_Liny", z3, z4);
+//        DRUZYNA d10 = new DRUZYNA("ZZ", "Przeciaganie_Liny", z1, z2);
+//        DRUZYNA d11 = new DRUZYNA("AA", "Przeciaganie_Liny", z5, z6);
+//        DRUZYNA d12 = new DRUZYNA("BB", "Przeciaganie_Liny", z7, z8);
 
 
 //
@@ -55,47 +55,55 @@ public class Main implements Serializable {
 //        //odtad domin!!
         TURNIEJ turniej = new TURNIEJ();
 //        MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa();
-        turniej.dodajDruzyne(d1);
-        turniej.dodajDruzyne(d2);
-        turniej.dodajDruzyne(d3);
-        turniej.dodajDruzyne(d4);
-        turniej.dodajDruzyne(d5);
-        turniej.dodajDruzyne(d6);
-        turniej.dodajDruzyne(d7);
-        turniej.dodajDruzyne(d8);
-        turniej.dodajDruzyne(d9);
-        turniej.dodajDruzyne(d10);
-        turniej.dodajDruzyne(d11);
-        turniej.dodajDruzyne(d12);
+//        turniej.dodajDruzyne(d1);
+//        turniej.dodajDruzyne(d2);
+//        turniej.dodajDruzyne(d3);
+//        turniej.dodajDruzyne(d4);
+//        turniej.dodajDruzyne(d5);
+//        turniej.dodajDruzyne(d6);
+//        turniej.dodajDruzyne(d7);
+//        turniej.dodajDruzyne(d8);
+//        turniej.dodajDruzyne(d9);
+//        turniej.dodajDruzyne(d10);
+//        turniej.dodajDruzyne(d11);
+//        turniej.dodajDruzyne(d12);
         //turniej.WyswietlRanknig();
         //turniej.dodajSedziego(s1);
         //turniej.dodajSedziego(s2);
 //
+        int wyborDruzyna=0, wyborSedzia=0, wyborSiatkowka=0, wyborOgnie=0, wyborLina=0, wyborTurniejSiata=0, wyborTurniejOgnie=0, wyborTurniejLina=0, wyborSedziaDoUsuniecia=-9;
+        boolean wyborDruzynaB= true;
 
 
         String nazwadruzyny, imieZawodnika, nazwiskoZawodnika, dziedzinaSportowaDruzyny, imieSedziego, nazwiskoSedziego, dyscyplinaSedziego;
         Scanner sc = new Scanner(System.in);
         int wybor = 0, ktoraDoUsuniecia1 = 0, index2 = 0, licznikIndex1 = 0, licznikIndex2 = 0;
         int numerZawodnika = 0, numerSedziego = 0;
-        System.out.println("Wybierz opcje");
 
-        while (true) {
+
+        while (wybor!=5) {
+            System.out.println("Wybierz opcje");
             System.out.println("1. Zarządzaj drużynami");
             System.out.println("2. Zarządzaj sędziami");
             System.out.println("3. Rozegraj turniej");
             System.out.println("4. Wyświetl tabele wyników");
+            System.out.println("5. Wyjdź");
+            wyborDruzyna =0;
+            wyborSedzia =0;
+            wyborSiatkowka=0;
             wybor = sc.nextInt();
             switch (wybor) {
                 case 1:
-                    System.out.println("Wybierz opcje");
-                    while (wybor != 5) {
+
+                    while (wyborDruzyna != 5) {
+                        System.out.println("Wybierz opcje");
                         System.out.println("1. Dodaj drużyne");
                         System.out.println("2. Wczytaj drużyny z pliku");
                         System.out.println("3. Wycofaj drużyne");
                         System.out.println("4. Przeglądaj drużyny");
                         System.out.println("5. Wyjdz");
-                        wybor = sc.nextInt();
-                        switch (wybor) {
+                        wyborDruzyna = sc.nextInt();
+                        switch (wyborDruzyna) {
                             case 1:
                                 System.out.println("Podaj nazwe druzyny");
                                 nazwadruzyny = sc.next();
@@ -139,6 +147,9 @@ public class Main implements Serializable {
 
                             case 5:
                                 break;
+                            default:
+                                System.out.println("Wybrales zly numer");
+                                break;
 
 
                         }
@@ -148,14 +159,14 @@ public class Main implements Serializable {
                 case 2:
                     System.out.println("Wybierz opcje");
 
-                    while (wybor != 5) {
+                    while (wyborSedzia != 5) {
                         System.out.println("1. Dodaj sędziego");
                         System.out.println("2. Wczytaj sędziów z pliku");
                         System.out.println("3. Usun sędziego");
                         System.out.println("4. Przeglądaj sędziów");
                         System.out.println("5. Wyjdz");
-                        wybor = sc.nextInt();
-                        switch (wybor) {
+                        wyborSedzia = sc.nextInt();
+                        switch (wyborSedzia) {
                             case 1:
                                 System.out.println("Podaj imie sędziego");
                                 imieSedziego = sc.next();
@@ -170,16 +181,16 @@ public class Main implements Serializable {
                                 break;
 
                             case 2:
-                               //turniej.wczytajSędziówZPliku();
-                               //turniej.zapis_stanu_sedziow_druzyn();
-                                turniej.wczytanie_stanu_sedziow_druzyn();
+                                turniej.wczytajSędziówZPliku();
+                                turniej.zapis_stanu_sedziow_druzyn();
+//                                turniej.wczytanie_stanu_sedziow_druzyn();
                                 break;
 
                             case 3:
                                 System.out.println("Ktorego sedziego chcesz usunac?");
                                 turniej.przegladajSedziow();
-                                wybor = sc.nextInt();
-                                turniej.usunSedziego(wybor);
+                                wyborSedziaDoUsuniecia = sc.nextInt();
+                                turniej.usunSedziego(wyborSedziaDoUsuniecia);
 
                                 break;
 
@@ -188,39 +199,45 @@ public class Main implements Serializable {
                                 break;
                             case 5:
                                 break;
+                            default:
+                                System.out.println("Wybrales zly numer");
+                                break;
                         }
 
 
                     }
                     break;
                 case 3:
-                    System.out.println("Wybierz dyscypline w ktorej chcesz rozegrac turniej");
-                    System.out.println("1. Siatkowka Plażowa");
-                    System.out.println("2. Dwa Ognie");
-                    System.out.println("3. Przeciąganie Liny");
-                    System.out.println("4. Wyjdz");
-                    wybor = sc.nextInt();
-                    while (wybor != 4) {
-                        switch (wybor) {
+
+
+
+                    while (wyborSiatkowka != 4) {
+                        System.out.println("Wybierz dyscypline w ktorej chcesz rozegrac turniej");
+                        System.out.println("1. Siatkowka Plażowa");
+                        System.out.println("2. Dwa Ognie");
+                        System.out.println("3. Przeciąganie Liny");
+                        System.out.println("4. Wyjdz");
+                        wyborTurniejSiata =0;
+                        wyborLina =0;
+                        wyborOgnie =0;
+                        wyborSiatkowka = sc.nextInt();
+                        switch (wyborSiatkowka) {
                             case 1:
-                                System.out.println("1. Rozegraj faze grupową");
-                                System.out.println("2. Rozegraj półfinały");
-                                System.out.println("3. Rozegraj finał");
-                                System.out.println("4. Wyjdz");
-                                wybor = sc.nextInt();
-                                while (wybor != 5) {
-                                    switch (wybor) {
+
+                                while (wyborTurniejSiata != 4) {
+                                    System.out.println("1. Rozegraj faze grupową");
+                                    System.out.println("2. Rozegraj półfinały");
+                                    System.out.println("3. Rozegraj finał");
+                                    System.out.println("4. Wyjdz");
+                                    wyborTurniejSiata = sc.nextInt();
+                                    switch (wyborTurniejSiata) {
                                         case 1:
                                             turniej.rozegrajFazeGrupowaSiatkowka();
                                             break;
                                         case 2:
-                                            System.out.println("many dran");
-                                            System.out.println("wybor to:" + wybor);
                                             turniej.rozegrajPolfinalSiatkowka();
                                             break;
-
                                         case 3:
-                                            System.out.println("many jednak nie jest draniem");
                                             turniej.rozegrajFinalSiatkowka();
                                             break;
                                         case 4:
@@ -229,20 +246,21 @@ public class Main implements Serializable {
                                             System.out.println("Wybrales zly numer, podaj numer jeszcze raz");
                                             break;
                                     }
-                                    break;
+
                                 }
                                 break;
 
 
                             case 2:
 
-                                System.out.println("1. Rozegraj faze grupową");
-                                System.out.println("2. Rozegraj półfinały");
-                                System.out.println("3. Rozegraj finał");
-                                System.out.println("4. Wyjdz");
-                                wybor = sc.nextInt();
-                                while (wybor != 4) {
-                                    switch (wybor) {
+
+                                while (wyborOgnie != 4) {
+                                    System.out.println("1. Rozegraj faze grupową");
+                                    System.out.println("2. Rozegraj półfinały");
+                                    System.out.println("3. Rozegraj finał");
+                                    System.out.println("4. Wyjdz");
+                                    wyborOgnie = sc.nextInt();
+                                    switch (wyborOgnie) {
                                         case 1: {
 //                                            System.out.println("allala");
 //                                            turniej.rozegrajFazeGrupowaDwaOgnie();
@@ -270,19 +288,32 @@ public class Main implements Serializable {
                                             }
                                             break;
                                         }
+                                        case 2:
+                                            System.out.println("tutaj powinny byc polfinaly");
+                                            break;
+                                        case 3:
+                                            System.out.println("tutaj powinny byc finaly");
+                                            break;
+                                        case 4:
+                                            break;
+                                        default:
+                                            System.out.println("Wybrales zly numer");
+
 
                                     }
-                                   break;
+
                                 }
+                                break;
 
                             case 3:
-                                System.out.println("1. Rozegraj faze grupową");
-                                System.out.println("2. Rozegraj półfinały");
-                                System.out.println("3. Rozegraj finał");
-                                System.out.println("4. Wyjdz");
-                                wybor = sc.nextInt();
-                                while (wybor != 4) {
-                                    switch (wybor) {
+
+                                while (wyborLina != 4) {
+                                    System.out.println("1. Rozegraj faze grupową");
+                                    System.out.println("2. Rozegraj półfinały");
+                                    System.out.println("3. Rozegraj finał");
+                                    System.out.println("4. Wyjdz");
+                                    wyborLina = sc.nextInt();
+                                    switch (wyborLina) {
                                         case 1:
 
                                             for (DRUZYNA druzyna : turniej.Druzyny) {
@@ -305,16 +336,49 @@ public class Main implements Serializable {
                                                 System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
                                             }
                                             break;
+                                        case 2:
+                                            System.out.println("polfinaly::");
+                                            break;
+                                        case 3:
+                                            System.out.println("Final");
+                                            break;
+                                        case 4:
+                                            break;
+                                        default:
+                                            System.out.println("Wybrales zly numer");
+                                            break;
 
                                     }
-                                    break;
+
                                 }
+                                break;
+                            case 4:
+                                break;
+                            default:
+                                System.out.println("Wybrales zly numer");
+                                break;
+
 
 
                         }
 
                     }
+                case 4:
+                    System.out.println("tutaj powinna byc tabela imo");
+                    turniej.tabelaWynikow();
+                    break;
+                case 5:
+                    System.out.println("Wyszedles z programu naura");
+                    System.exit(-1);
+                    break;
+                default:
+                    System.out.println("Podales zly numer");
+                    break;
+
+
+
             }
+
         }
     }
 }
