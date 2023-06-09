@@ -7,35 +7,35 @@ import java.util.logging.SocketHandler;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-//        ZAWODNIK z1 = new ZAWODNIK("Maciuśtodran1111", "R", 13);
+        ZAWODNIK z1 = new ZAWODNIK("Maciuśtodran1111", "R", 13);
+
+        ZAWODNIK z2 = new ZAWODNIK("Ulcia", "R", 4);
+        ZAWODNIK z3 = new ZAWODNIK("Domiś", "Ż", 23);
+        ZAWODNIK z4 = new ZAWODNIK("Romek", "A", 80);
+        ZAWODNIK z5 = new ZAWODNIK("Maciuś", "R", 13);
+        ZAWODNIK z6 = new ZAWODNIK("Ulcia", "R", 4);
+        ZAWODNIK z7 = new ZAWODNIK("Domiś", "Ż", 23);
+        ZAWODNIK z8 = new ZAWODNIK("Romek", "A", 80);
 //
-//        ZAWODNIK z2 = new ZAWODNIK("Ulcia", "R", 4);
-//        ZAWODNIK z3 = new ZAWODNIK("Domiś", "Ż", 23);
-//        ZAWODNIK z4 = new ZAWODNIK("Romek", "A", 80);
-//        ZAWODNIK z5 = new ZAWODNIK("Maciuś", "R", 13);
-//        ZAWODNIK z6 = new ZAWODNIK("Ulcia", "R", 4);
-//        ZAWODNIK z7 = new ZAWODNIK("Domiś", "Ż", 23);
-//        ZAWODNIK z8 = new ZAWODNIK("Romek", "A", 80);
-////
-//        SĘDZIA s1 = new SĘDZIA("Daro", "Lew", 3, "Siatkowka_Plazowa");
-//        SĘDZIA s2 = new SĘDZIA("Daro1", "Lew1", 3, "Przeciaganie_Liny");
-////
-////
-//        DRUZYNA d1 = new DRUZYNA("Byki", "Siatkowka_Plazowa", z3, z4);
-//        DRUZYNA d2 = new DRUZYNA("ZZ", "Siatkowka_Plazowa", z1, z2);
-//        DRUZYNA d3 = new DRUZYNA("AA", "Siatkowka_Plazowa", z5, z6);
-//        DRUZYNA d4 = new DRUZYNA("BB", "Siatkowka_Plazowa", z7, z8);
+        SĘDZIA s1 = new SĘDZIA("Daro", "Lew", 3, "Siatkowka_Plazowa");
+        SĘDZIA s2 = new SĘDZIA("Daro1", "Lew1", 3, "Przeciaganie_Liny");
 //
-//        DRUZYNA d5 = new DRUZYNA("Byki", "Dwa_Ognie", z3, z4);
-//        DRUZYNA d6 = new DRUZYNA("ZZ", "Dwa_Ognie", z1, z2);
-//        DRUZYNA d7 = new DRUZYNA("AA", "Dwa_Ognie", z5, z6);
-//        DRUZYNA d8 = new DRUZYNA("BB", "Dwa_Ognie", z7, z8);
 //
-//        DRUZYNA d9 = new DRUZYNA("Byki", "Przeciaganie_Liny", z3, z4);
-//        DRUZYNA d10 = new DRUZYNA("ZZ", "Przeciaganie_Liny", z1, z2);
-//        DRUZYNA d11 = new DRUZYNA("AA", "Przeciaganie_Liny", z5, z6);
-//        DRUZYNA d12 = new DRUZYNA("BB", "Przeciaganie_Liny", z7, z8);
-//
+        DRUZYNA d1 = new DRUZYNA("Byki", "Siatkowka_Plazowa", z3, z4);
+        DRUZYNA d2 = new DRUZYNA("ZZ", "Siatkowka_Plazowa", z1, z2);
+        DRUZYNA d3 = new DRUZYNA("AA", "Siatkowka_Plazowa", z5, z6);
+        DRUZYNA d4 = new DRUZYNA("BB", "Siatkowka_Plazowa", z7, z8);
+
+        DRUZYNA d5 = new DRUZYNA("Byki", "Dwa_Ognie", z3, z4);
+        DRUZYNA d6 = new DRUZYNA("ZZ", "Dwa_Ognie", z1, z2);
+        DRUZYNA d7 = new DRUZYNA("AA", "Dwa_Ognie", z5, z6);
+        DRUZYNA d8 = new DRUZYNA("BB", "Dwa_Ognie", z7, z8);
+
+        DRUZYNA d9 = new DRUZYNA("Byki", "Przeciaganie_Liny", z3, z4);
+        DRUZYNA d10 = new DRUZYNA("ZZ", "Przeciaganie_Liny", z1, z2);
+        DRUZYNA d11 = new DRUZYNA("AA", "Przeciaganie_Liny", z5, z6);
+        DRUZYNA d12 = new DRUZYNA("BB", "Przeciaganie_Liny", z7, z8);
+
 
 //
 //        MeczDwaOgnie m1 = new MeczDwaOgnie(d1, d2, s1);
@@ -52,23 +52,23 @@ public class Main {
 //
 //        //odtad domin!!
         TURNIEJ turniej = new TURNIEJ();
-////        MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa();
-//        turniej.dodajDruzyne(d1);
-//        turniej.dodajDruzyne(d2);
-//        turniej.dodajDruzyne(d3);
-//        turniej.dodajDruzyne(d4);
-//        turniej.dodajDruzyne(d5);
-//        turniej.dodajDruzyne(d6);
-//        turniej.dodajDruzyne(d7);
-//        turniej.dodajDruzyne(d8);
-//        turniej.dodajDruzyne(d9);
-//        turniej.dodajDruzyne(d10);
-//        turniej.dodajDruzyne(d11);
-//        turniej.dodajDruzyne(d12);
-//        //turniej.WyswietlRanknig();
-//        turniej.dodajSedziego(s1);
-//        turniej.dodajSedziego(s2);
-////
+//        MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa();
+        turniej.dodajDruzyne(d1);
+        turniej.dodajDruzyne(d2);
+        turniej.dodajDruzyne(d3);
+        turniej.dodajDruzyne(d4);
+        turniej.dodajDruzyne(d5);
+        turniej.dodajDruzyne(d6);
+        turniej.dodajDruzyne(d7);
+        turniej.dodajDruzyne(d8);
+        turniej.dodajDruzyne(d9);
+        turniej.dodajDruzyne(d10);
+        turniej.dodajDruzyne(d11);
+        turniej.dodajDruzyne(d12);
+        //turniej.WyswietlRanknig();
+        turniej.dodajSedziego(s1);
+        turniej.dodajSedziego(s2);
+//
 
 
         String nazwadruzyny, imieZawodnika, nazwiskoZawodnika, dziedzinaSportowaDruzyny, imieSedziego, nazwiskoSedziego, dyscyplinaSedziego;
@@ -134,8 +134,10 @@ public class Main {
                                 turniej.przegladajDruzyny();
                                 break;
 
+
                             case 5:
                                 break;
+
 
                         }
 
@@ -207,18 +209,18 @@ public class Main {
                                         case 1:
                                             turniej.rozegrajFazeGrupowaSiatkowka();
                                             break;
-
                                         case 2:
-                                            turniej.rozegrajPolfinalSiatkowka();
+                                            System.out.println("many dran");
+                                            System.out.println("wybor to:" + wybor);
+                                            turniej.rozegrajPolfinal();
                                             break;
 
                                         case 3:
-                                            turniej.rozegrajFinalSiatkowka();
+                                            System.out.println("many jednak nie jest draniem");
+                                            turniej.rozegrajFinal();
                                             break;
-
                                         case 4:
                                             break;
-
                                         default:
                                             System.out.println("Wybrales zly numer, podaj numer jeszcze raz");
                                             break;
@@ -237,26 +239,36 @@ public class Main {
                                 wybor = sc.nextInt();
                                 while (wybor != 4) {
                                     switch (wybor) {
-                                        case 1:
-                                            turniej.rozegrajFazeGrupowaDwaOgnie();
-                                            break;
+                                        case 1: {
+//                                            System.out.println("allala");
+//                                            turniej.rozegrajFazeGrupowaDwaOgnie();
+//                                            System.out.println("allala");
+                                            licznikIndex1 = 0;
+                                            for (DRUZYNA druzyna : turniej.Druzyny) {
+//                                                licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
+                                                if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie")) {
+                                                    licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
+                                                    for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
+                                                        if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie")) {
+                                                            MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(turniej.Druzyny.get(licznikIndex1), turniej.Druzyny.get(i), turniej.Sedziowie_DwaOgnie);
 
-                                        case 2:
-                                            turniej.rozegrajPolfinalDwaOgnie();
-                                            break;
+                                                            System.out.println("Druzyna " + turniej.Druzyny.get(licznikIndex1).NazwaDruzyny  + "vs " + " Druzyna " + i + "Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
+                                                            System.out.println(meczDwaOgnie.wynikd1 + " " + meczDwaOgnie.wynikd2);
+                                                            System.out.println("Sędzia: " + meczDwaOgnie.sedzia1.Imie + " " + meczDwaOgnie.sedzia1.Nazwisko);
+                                                        }
+                                                    }
+                                                }
+                                            }
 
-                                        case 3:
-                                            turniej.rozegrajfinalDwaOgnie();
+                                            System.out.println("Tabela punktów drużyn po fazie grupowej");
+                                            for (DRUZYNA druzyny : turniej.Druzyny) {
+                                                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
+                                            }
                                             break;
+                                        }
 
-                                        case 4:
-                                            break;
-
-                                        default:
-                                            System.out.println("Wybrales zly numer, podaj numer jeszcze raz");
-                                            break;
                                     }
-                                    break;
+                                   break;
                                 }
 
                             case 3:
@@ -268,35 +280,37 @@ public class Main {
                                 while (wybor != 4) {
                                     switch (wybor) {
                                         case 1:
-                                            turniej.rozegrajFazeGrupowaPrzeciaganieLIiny();
+
+                                            for (DRUZYNA druzyna : turniej.Druzyny) {
+                                                licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
+                                                if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny")) {
+//
+                                                    for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
+                                                        if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Przeciaganie_Liny")) {
+                                                            MeczPrzeciaganieLiny meczPrzeciaganieLiny = new MeczPrzeciaganieLiny(turniej.Druzyny.get(licznikIndex1), turniej.Druzyny.get(i), turniej.Sedziowie_PrzeciaganieLiny);
+
+                                                            System.out.println("Druzyna " + licznikIndex1 + "vs " + " Druzyna " + i + "Sędzia: " + meczPrzeciaganieLiny.sedzia1.Imie);
+                                                            System.out.println(meczPrzeciaganieLiny.wynikd1 + " " + meczPrzeciaganieLiny.wynikd2);
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            System.out.println("Tabela punktów drużyn po fazie grupowej");
+                                            for (DRUZYNA druzyny : turniej.Druzyny) {
+                                                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
+                                            }
                                             break;
 
-                                        case 2:
-                                            turniej.rozegrajPolfinalPrzeciaganieLiny();
-                                            break;
-
-                                        case 3:
-                                            turniej.rozegrajFinalPrzeciaganieLiny();
-                                            break;
-
-                                        case 4:
-                                            break;
-
-                                        default:
-                                            System.out.println("Wybrales zly numer, podaj numer jeszcze raz");
-                                            break;
                                     }
                                     break;
                                 }
 
+
                         }
 
                     }
-            case 4:
-                turniej.tabelaWynikow();
-                break;
-
-        }
+            }
         }
     }
 }
