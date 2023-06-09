@@ -145,7 +145,7 @@ public class TURNIEJ  {
 
     private int m1 = 0, m2 = 3;
 
-    public void rozegrajFazeGrupowa() {
+    public void rozegrajFazeGrupowaSiatkowka() {
         int licznikIndex1 = 0;
         for (DRUZYNA druzyna : Druzyny) {
 
