@@ -232,13 +232,13 @@ public class Main implements Serializable {
                                     wyborTurniejSiata = sc.nextInt();
                                     switch (wyborTurniejSiata) {
                                         case 1:
-                                            turniej.rozegrajFazeGrupowaSiatkowka();
+                                            turniej.rozegrajFazeGrupowa(1);
                                             break;
                                         case 2:
-                                            turniej.rozegrajPolfinalSiatkowka();
+                                            turniej.rozegrajPolfinal(1);
                                             break;
                                         case 3:
-                                            turniej.rozegrajFinalSiatkowka();
+                                            turniej.rozegrajFinal(1);
                                             break;
                                         case 4:
                                             break;
@@ -261,41 +261,21 @@ public class Main implements Serializable {
                                     System.out.println("4. Wyjdz");
                                     wyborOgnie = sc.nextInt();
                                     switch (wyborOgnie) {
-                                        case 1: {
-//                                            System.out.println("allala");
-//                                            turniej.rozegrajFazeGrupowaDwaOgnie();
-//                                            System.out.println("allala");
-                                            licznikIndex1 = 0;
-                                            for (DRUZYNA druzyna : turniej.Druzyny) {
-//                                                licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
-                                                if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie")) {
-                                                    licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
-                                                    for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
-                                                        if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie")) {
-                                                            MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(turniej.Druzyny.get(licznikIndex1), turniej.Druzyny.get(i), turniej.Sedziowie_DwaOgnie);
-
-                                                            System.out.println("Druzyna " + turniej.Druzyny.get(licznikIndex1).NazwaDruzyny  + "vs " + " Druzyna " + i + "Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
-                                                            System.out.println(meczDwaOgnie.wynikd1 + " " + meczDwaOgnie.wynikd2);
-                                                            System.out.println("Sędzia: " + meczDwaOgnie.sedzia1.Imie + " " + meczDwaOgnie.sedzia1.Nazwisko);
-                                                        }
-                                                    }
-                                                }
-                                            }
-
-                                            System.out.println("Tabela punktów drużyn po fazie grupowej");
-                                            for (DRUZYNA druzyny : turniej.Druzyny) {
-                                                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
-                                            }
+                                        case 1:
+                                            turniej.rozegrajFazeGrupowa(2);
                                             break;
-                                        }
+
                                         case 2:
-                                            System.out.println("tutaj powinny byc polfinaly");
+                                            turniej.rozegrajPolfinal(2);
                                             break;
+
                                         case 3:
-                                            System.out.println("tutaj powinny byc finaly");
+                                            turniej.rozegrajFinal(2);
                                             break;
+
                                         case 4:
                                             break;
+
                                         default:
                                             System.out.println("Wybrales zly numer");
 
@@ -315,32 +295,13 @@ public class Main implements Serializable {
                                     wyborLina = sc.nextInt();
                                     switch (wyborLina) {
                                         case 1:
-
-                                            for (DRUZYNA druzyna : turniej.Druzyny) {
-                                                licznikIndex1 = turniej.Druzyny.indexOf(druzyna);
-                                                if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny")) {
-//
-                                                    for (int i = licznikIndex1 + 1; i < turniej.Druzyny.size(); i++) {
-                                                        if (turniej.Druzyny.get(i).DziedzinaSportowa.equals("Przeciaganie_Liny")) {
-                                                            MeczPrzeciaganieLiny meczPrzeciaganieLiny = new MeczPrzeciaganieLiny(turniej.Druzyny.get(licznikIndex1), turniej.Druzyny.get(i), turniej.Sedziowie_PrzeciaganieLiny);
-
-                                                            System.out.println("Druzyna " + licznikIndex1 + "vs " + " Druzyna " + i + "Sędzia: " + meczPrzeciaganieLiny.sedzia1.Imie);
-                                                            System.out.println(meczPrzeciaganieLiny.wynikd1 + " " + meczPrzeciaganieLiny.wynikd2);
-                                                        }
-                                                    }
-                                                }
-                                            }
-
-                                            System.out.println("Tabela punktów drużyn po fazie grupowej");
-                                            for (DRUZYNA druzyny : turniej.Druzyny) {
-                                                System.out.println(druzyny.NazwaDruzyny + " " + druzyny.Punkty);
-                                            }
+                                            turniej.rozegrajFazeGrupowa(3);
                                             break;
                                         case 2:
-                                            System.out.println("polfinaly::");
+                                            turniej.rozegrajPolfinal(3);
                                             break;
                                         case 3:
-                                            System.out.println("Final");
+                                            turniej.rozegrajFinal(3);
                                             break;
                                         case 4:
                                             break;
@@ -364,7 +325,6 @@ public class Main implements Serializable {
 
                     }
                 case 4:
-                    System.out.println("tutaj powinna byc tabela imo");
                     turniej.tabelaWynikow();
                     break;
                 case 5:
