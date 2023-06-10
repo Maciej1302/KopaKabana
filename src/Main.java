@@ -181,9 +181,9 @@ public class Main implements Serializable {
                                 break;
 
                             case 2:
-                               // turniej.wczytajSędziówZPliku();
-                                 //turniej.zapis_stanu_sedziow_druzyn();
-                               turniej.wczytanie_stanu_sedziow_druzyn();
+                                turniej.wczytajSędziówZPliku();
+//                                 //turniej.zapis_stanu_sedziow_druzyn();
+//                               turniej.wczytanie_stanu_sedziow_druzyn();
                                 break;
 
                             case 3:

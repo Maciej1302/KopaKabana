@@ -160,10 +160,12 @@ public class TURNIEJ  {
                             System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
                         }
                     }
-                    System.out.println("Tabela punktów drużyn po fazie grupowej dla siatkówki plażowej: ");
-                    tabelaWynikowSiatkowka();
+
                 }
+
             }
+            System.out.println("Tabela punktów drużyn po fazie grupowej dla siatkówki plażowej: ");
+            tabelaWynikowSiatkowka();
         }else if(n == 2){
             for (DRUZYNA druzyna : Druzyny) {
                 licznikIndex1 = Druzyny.indexOf(druzyna);
@@ -173,7 +175,7 @@ public class TURNIEJ  {
                         if (Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie")) {
                             MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(Druzyny.get(licznikIndex1), Druzyny.get(i), Sedziowie_DwaOgnie);
 
-                            System.out.println("Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + "vs " + " Druzyna " + i + "Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
+                            System.out.println("Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + "vs " + " Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + " Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
                             System.out.println(meczDwaOgnie.wynikd1 + " " + meczDwaOgnie.wynikd2);
                         }
                     }
@@ -206,10 +208,12 @@ public class TURNIEJ  {
     public void rozegrajPolfinal(int n) {
         Collections.sort(Druzyny, new PorownywaniePunktow());
 if(n == 1) {
+    System.out.println("Półfinały");
     for (DRUZYNA druzyna : Druzyny) {
 
         if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && Druzyny.indexOf(druzyna) <= 1) {
             MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(Druzyny.get(m1), Druzyny.get(m2), Sedziowie_SiatkowkaPlazowa);
+
             System.out.println("Druzyna:  " + Druzyny.get(m1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(m2).NazwaDruzyny + " Sędzia głwóny: " + meczSiatkowkaPlazowa.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa.sedzia3.Imie);
             System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
             if (meczSiatkowkaPlazowa.wynikd1 > meczSiatkowkaPlazowa.wynikd2) {
@@ -221,7 +225,12 @@ if(n == 1) {
             m2--;
         }
     }
-    tabelaWynikowSiatkowka();
+    System.out.println("Zwyciescy półfinałów: ");
+    for (DRUZYNA druzyny: Druzyny) {
+        if(druzyny.getPunkty()==-2){
+            System.out.println(druzyny.NazwaDruzyny);
+        }
+    }
 }else if(n == 2)
 {
     Collections.sort(Druzyny, new PorownywaniePunktow());
@@ -265,10 +274,10 @@ if(n == 1) {
 
     public void rozegrajFinal(int n) {
        if(n == 1){
-           System.out.println("dziala23");
+           System.out.println("Grande Finale");
         for (DRUZYNA druzyna : Druzyny) {
             if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && druzyna.getPunkty() == -2) {
-                System.out.println("dziala789");
+
                 index1 = Druzyny.indexOf(druzyna);
                 for (int i = index1 + 1; i < Druzyny.size(); i++) {
                     if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && Druzyny.get(i).getPunkty() == -2) {
@@ -276,6 +285,16 @@ if(n == 1) {
                         MeczSiatkowkaPlazowa meczSiatkowkaPlazowa5 = new MeczSiatkowkaPlazowa(Druzyny.get(index1), Druzyny.get(i), Sedziowie_SiatkowkaPlazowa);
                         System.out.println("Druzyna:  " + Druzyny.get(index1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia głwóny: " + meczSiatkowkaPlazowa5.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa5.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa5.sedzia3.Imie);
                         System.out.println(meczSiatkowkaPlazowa5.wynikd1 + " : " + meczSiatkowkaPlazowa5.wynikd2);
+                        System.out.println("Zwyciezca Finału: ");
+                        if(meczSiatkowkaPlazowa5.wynikd1>meczSiatkowkaPlazowa5.wynikd2)
+                        {
+                            System.out.println(Druzyny.get(index1).NazwaDruzyny);
+
+                        }
+                        else
+                        {
+                            System.out.println(Druzyny.get(i).NazwaDruzyny);
+                        }
                         break;
                     }
                 }
@@ -283,6 +302,7 @@ if(n == 1) {
             }
             break;
         }
+
 }
        if(n == 2)
        {
