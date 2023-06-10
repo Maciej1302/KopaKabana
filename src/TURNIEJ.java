@@ -405,7 +405,7 @@ if(n == 1) {
 
         }
         for (DRUZYNA druzyna: Druzyny) {
-            System.out.println(druzyna.zawodnik1.Imie+" "+druzyna.zawodnik2.getNazwisko()+" "+ druzyna.DziedzinaSportowa+" "+druzyna.NazwaDruzyny);
+            System.out.println(druzyna.toString());
         }
         System.out.println("Pomyślnie odczytano stan sędziów i drużyn");
 

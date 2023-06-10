@@ -5,6 +5,7 @@ public class SĘDZIA extends OSOBA implements Serializable {
     public int NumerSędziego;
     public String DziedzinaSportowa;
     public ArrayList<SĘDZIA> Sędziowie;
+
     public SĘDZIA(String imie,String Nazwisko,int NumerSędziego,String Dziedzina)
     {
         super(imie,Nazwisko);

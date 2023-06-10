@@ -8,7 +8,7 @@ public class DRUZYNA implements Serializable {
 
     public int Punkty;
 
-
+    private static final long serialVersionUID=3639113143581119319L;
 
     public DRUZYNA(String NazwaDruzyny,String DziedzinaSportowa,ZAWODNIK zawodnik1,ZAWODNIK zawodnik2)
     {
@@ -33,5 +33,15 @@ public class DRUZYNA implements Serializable {
 
     public void setPunkty(int punkty) {
         Punkty = punkty;
+    }
+
+    @Override
+    public String toString() {
+        return "DRUZYNA{" +
+                "NazwaDruzyny='" + NazwaDruzyny + '\'' +
+                ", DziedzinaSportowa='" + DziedzinaSportowa + '\'' +
+                ", zawodnik1=" + zawodnik1.getImie() +
+                ", zawodnik2=" + zawodnik2.getNazwisko() +
+                '}';
     }
 }
