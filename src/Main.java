@@ -324,6 +324,7 @@ public class Main implements Serializable {
                         }
 
                     }
+                    break;
                 case 4:
                     turniej.tabelaWynikow();
                     break;

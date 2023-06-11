@@ -6,7 +6,7 @@ public class DRUZYNA implements Serializable {
     public String DziedzinaSportowa;
     public ZAWODNIK zawodnik1,zawodnik2;
 
-    public int Punkty;
+    public int Punkty=0;
 
     private static final long serialVersionUID=3639113143581119319L;
 
@@ -19,13 +19,9 @@ public class DRUZYNA implements Serializable {
     }
 
 //odtad DOMIN
-    public DRUZYNA() {
 
-    }
 
-    public DRUZYNA(int punkty) {
-        Punkty = punkty;
-    }
+
 
     public int getPunkty() {
         return Punkty;
