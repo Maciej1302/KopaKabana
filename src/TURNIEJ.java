@@ -435,33 +435,124 @@ if(n == 1) {
         System.out.println("Przeciąganie Liny:");
         tabelaWynikowPrzeciaganieLiny();
     }
-    File SedziowieZapis = new File("Sedziatest.txt");
+
     public void zapis_stanu_sedziow_druzyn() throws Exception {
 
-        ObjectOutputStream zapis = new ObjectOutputStream(new FileOutputStream(SedziowieZapis));
+//        ObjectOutputStream zapis = new ObjectOutputStream(new FileOutputStream(SedziowieZapis));
+//        for (DRUZYNA druzyna: Druzyny) {
+//            zapis.writeObject(druzyna);
+//        }
+
+        PrintWriter zapis1 = new PrintWriter("druzynyZapis.txt");
         for (DRUZYNA druzyna: Druzyny) {
-            zapis.writeObject(druzyna);
+            zapis1.print(druzyna.NazwaDruzyny+" ");
+            zapis1.print(druzyna.DziedzinaSportowa+" ");
+            zapis1.print(druzyna.zawodnik1.Imie+" ");
+            zapis1.print(druzyna.zawodnik1.Nazwisko+" ");
+            zapis1.print(druzyna.zawodnik1.NumerZawodnika+" ");
+            zapis1.print(druzyna.zawodnik2.Imie+" ");
+            zapis1.print(druzyna.zawodnik2.Nazwisko+" ");
+            zapis1.println(druzyna.zawodnik2.NumerZawodnika);
         }
+        zapis1.close();
+
+        PrintWriter zapis2 = new PrintWriter("sedziowieZapis.txt");
+        for (SĘDZIA sedzia: sedziowie) {
+            zapis2.print(sedzia.Imie+" ");
+            zapis2.print(sedzia.Nazwisko+" ");
+            zapis2.print(sedzia.NumerSędziego+" ");
+            zapis2.println(sedzia.DziedzinaSportowa);
+        }
+        zapis2.close();
+
+
 
         System.out.println("Pomyślnie zapisano stan sędziów i drużyn");
     }
     public void wczytanie_stanu_sedziow_druzyn() throws Exception {
-        ObjectInputStream odczyt = new ObjectInputStream(new FileInputStream(SedziowieZapis));
+//        ObjectInputStream odczyt = new ObjectInputStream(new FileInputStream(SedziowieZapis));
+//
+//        while (true) {
+//            try {
+//                Object obj = odczyt.readObject();
+//                Druzyny.add((DRUZYNA) obj);
+//            }
+//            catch (EOFException e){
+//                break;
+//            }
+//
+//        }
 
-        while (true) {
-            try {
-                Object obj = odczyt.readObject();
-                Druzyny.add((DRUZYNA) obj);
-            }
-            catch (EOFException e){
-                break;
+
+        try {
+            Scanner scanner1 = new Scanner(new File("sedziowieZapis.txt"));
+
+            String imie;
+            String nazwisko;
+            int nr;
+            String dziedzina;
+
+            while (scanner1.hasNext()) {
+                imie = scanner1.next();
+                nazwisko = scanner1.next();
+                nr = scanner1.nextInt();
+                dziedzina = scanner1.next();
+
+                SĘDZIA sędzia = new SĘDZIA(imie, nazwisko, nr, dziedzina);
+                dodajSedziego(sędzia);
             }
 
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Nie udało sie otworzyc pliku z zapisem sędziów.");
         }
-        for (DRUZYNA druzyna: Druzyny) {
-            System.out.println(druzyna.toString());
+
+        try {
+            Scanner scanner = new Scanner(new File("druzynyZapis.txt"));
+
+            String nazwaDruzyny;
+            String dziedzina;
+
+            String imie1;
+            String nazwisko1;
+            int nr1;
+            String imie2;
+            String nazwisko2;
+            int nr2;
+
+            while (scanner.hasNext()) {
+
+                nazwaDruzyny = scanner.next();
+                dziedzina = scanner.next();
+
+                imie1 = scanner.next();
+                nazwisko1 = scanner.next();
+                nr1 = scanner.nextInt();
+                imie2 = scanner.next();
+                nazwisko2 = scanner.next();
+                nr2 = scanner.nextInt();
+
+                ZAWODNIK zawodnik1 = new ZAWODNIK(imie1, nazwisko1, nr1);
+                ZAWODNIK zawodnik2 = new ZAWODNIK(imie2, nazwisko2, nr2);
+                DRUZYNA druzyna = new DRUZYNA(nazwaDruzyny, dziedzina, zawodnik1, zawodnik2);
+                Druzyny.add(druzyna);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Nie udało sie otworzyc pliku z zapisem drużyn.");
         }
+
         System.out.println("Pomyślnie odczytano stan sędziów i drużyn");
+
+    }
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -470,7 +561,17 @@ if(n == 1) {
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

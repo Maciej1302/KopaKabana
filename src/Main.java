@@ -81,13 +81,14 @@ public class Main implements Serializable {
         int numerZawodnika = 0, numerSedziego = 0;
 
 
-        while (wybor!=5) {
+        while (wybor!=6) {
             System.out.println("Wybierz opcje");
             System.out.println("1. Zarządzaj drużynami");
             System.out.println("2. Zarządzaj sędziami");
             System.out.println("3. Rozegraj turniej");
             System.out.println("4. Wyświetl tabele wyników");
-            System.out.println("5. Wyjdź");
+            System.out.println("5. Wczytaj poprzedni stan programu");
+            System.out.println("6. Wyjdź");
             wyborDruzyna =0;
             wyborSedzia =0;
             wyborSiatkowka=0;
@@ -182,8 +183,6 @@ public class Main implements Serializable {
 
                             case 2:
                                 turniej.wczytajSędziówZPliku();
-//                                 //turniej.zapis_stanu_sedziow_druzyn();
-//                               turniej.wczytanie_stanu_sedziow_druzyn();
                                 break;
 
                             case 3:
@@ -329,7 +328,11 @@ public class Main implements Serializable {
                     turniej.tabelaWynikow();
                     break;
                 case 5:
+                    turniej.wczytanie_stanu_sedziow_druzyn();
+                    break;
+                case 6:
                     System.out.println("Wyszedles z programu naura");
+                    turniej.zapis_stanu_sedziow_druzyn();
                     System.exit(-1);
                     break;
                 default:
@@ -339,5 +342,6 @@ public class Main implements Serializable {
             }
 
         }
+
     }
 }

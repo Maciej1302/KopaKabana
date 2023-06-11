@@ -6,3 +6,5 @@ Nikola Magical 5 Dwa_Ognie
 Tomasz Paluch 6 Przeciaganie_Liny
 Jan Kowalski 7 Siatkowka_Plazowa
 Adaś Małysz 8 Dwa_Ognie
+Janusz Kowalski 0 Przeciaganie_Liny
+Jaś Koszyk 11 Dwa_Ognie
