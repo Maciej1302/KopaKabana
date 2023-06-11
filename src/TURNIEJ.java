@@ -221,10 +221,13 @@ public class TURNIEJ {
 
     public void rozegrajPolfinal(int n) {
 
-        Collections.sort(Druzyny, new PorownywaniePunktow());
-if(n == 1) {
-    System.out.println("Półfinały");
-    for (DRUZYNA druzyna : Druzyny) {
+
+        if (n == 1) {
+
+            Collections.sort(listaDruzynSiata, new PorownywaniePunktow());
+            System.out.println("Półfinały");
+
+            for (DRUZYNA druzyna : listaDruzynSiata) {
 
                 if (druzyna.DziedzinaSportowa.equals("Siatkowka_Plazowa") && listaDruzynSiata.indexOf(druzyna) <= 1) {
                     MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(listaDruzynSiata.get(m1), listaDruzynSiata.get(m2), Sedziowie_SiatkowkaPlazowa);
