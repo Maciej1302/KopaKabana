@@ -21,7 +21,11 @@ public class MeczPrzeciaganieLiny {
         Random liczba1= new Random();
         Random liczba2= new Random();
         wynikd1=liczba1.nextInt(2);
-        wynikd2=liczba2.nextInt(2);
+        wynikd2 = wynikd1;
+        while (wynikd2 == wynikd1)
+        {
+            wynikd2=liczba2.nextInt(2);
+        }
         if(wynik==0)
         {
             druzyna1.Punkty+=1;

@@ -206,6 +206,7 @@ public class TURNIEJ  {
     }
 
     public void rozegrajPolfinal(int n) {
+
         Collections.sort(Druzyny, new PorownywaniePunktow());
 if(n == 1) {
     System.out.println("Półfinały");
@@ -225,7 +226,7 @@ if(n == 1) {
             m2--;
         }
     }
-    System.out.println("Zwyciescy półfinałów: ");
+    System.out.println("Zwyciezcy półfinałów: ");
     for (DRUZYNA druzyny: Druzyny) {
         if(druzyny.getPunkty()==-2){
             System.out.println(druzyny.NazwaDruzyny);
@@ -249,7 +250,14 @@ if(n == 1) {
             m2--;
         }
     }
-    tabelaWynikowDwaOgnie();
+        System.out.println("Zwyciezcy półfinałów: ");
+        for (DRUZYNA druzyny : Druzyny)
+        {
+            if(druzyny.DziedzinaSportowa.equals("Dwa_Ognie"))
+             if(druzyny.Punkty < 0)
+                System.out.println(druzyny.NazwaDruzyny);
+        }
+
 }else if(n == 3) {
     for (DRUZYNA druzyna : Druzyny) {
 
@@ -266,13 +274,20 @@ if(n == 1) {
             m2--;
         }
     }
-    tabelaWynikowPrzeciaganieLiny();
+    System.out.println("Zwyciezcy półfinałów: ");
+    for (DRUZYNA druzyny : Druzyny)
+    {
+        if(druzyny.DziedzinaSportowa.equals("Przeciaganie_Liny"))
+            if(druzyny.Punkty < 0)
+                System.out.println(druzyny.NazwaDruzyny);
+    }
 
 }
 }
 
 
     public void rozegrajFinal(int n) {
+
        if(n == 1){
            System.out.println("Grande Finale");
         for (DRUZYNA druzyna : Druzyny) {
@@ -310,34 +325,53 @@ if(n == 1) {
                if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie") && druzyna.getPunkty() == -2) {
                    index1 = Druzyny.indexOf(druzyna);
                    for (int i = index1 + 1; i < Druzyny.size(); i++) {
-                       if (druzyna.DziedzinaSportowa.equals("Dwa_Ognie") && druzyna.getPunkty() == -2) {
+                       if (Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie") && Druzyny.get(i).getPunkty() == -2) {
 
                            MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(Druzyny.get(index1), Druzyny.get(i), Sedziowie_DwaOgnie);
                            System.out.println("Druzyna:  " + Druzyny.get(index1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia : " + meczDwaOgnie.sedzia1.Imie + " " + meczDwaOgnie.sedzia1.Nazwisko);
                            System.out.println(meczDwaOgnie.wynikd1 + " : " + meczDwaOgnie.wynikd2);
+                           System.out.println("Zwyciezca Finału: ");
+                           if(meczDwaOgnie.wynikd1>meczDwaOgnie.wynikd2)
+                           {
+                               System.out.println(Druzyny.get(index1).NazwaDruzyny);
+                           }
+                           else
+                           {
+                               System.out.println(Druzyny.get(i).NazwaDruzyny);
+                           }
                            break;
                        }
+
+                       }
+                   break;
                    }
                }
-               break;
            }
-       }
        if(n == 3){
-           System.out.println("pomocy123");
            for (DRUZYNA druzyna : Druzyny) {
                if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny") && druzyna.getPunkty() == -2) {
                    index1 = Druzyny.indexOf(druzyna);
                    for (int i = index1 + 1; i < Druzyny.size(); i++) {
-                       if (druzyna.DziedzinaSportowa.equals("Przeciaganie_Liny") && druzyna.getPunkty() == -2) {
+                       if (Druzyny.get(i).DziedzinaSportowa.equals("Przeciaganie_Liny") && Druzyny.get(i).getPunkty() == -2) {
 
                            MeczPrzeciaganieLiny meczPrzeciaganieLiny = new MeczPrzeciaganieLiny(Druzyny.get(index1), Druzyny.get(i), Sedziowie_PrzeciaganieLiny);
                            System.out.println("Druzyna:  " + Druzyny.get(index1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia : " + meczPrzeciaganieLiny.sedzia1.Imie + " " + meczPrzeciaganieLiny.sedzia1.Nazwisko);
                            System.out.println(meczPrzeciaganieLiny.wynikd1 + " : " + meczPrzeciaganieLiny.wynikd2);
+                           System.out.println("Zwyciezca Finału: ");
+                           if(meczPrzeciaganieLiny.wynikd1>meczPrzeciaganieLiny.wynikd2)
+                           {
+                               System.out.println(Druzyny.get(index1).NazwaDruzyny);
+                           }
+                           else
+                           {
+                               System.out.println(Druzyny.get(i).NazwaDruzyny);
+                           }
                            break;
                        }
+
                    }
+                   break;
                }
-               break;
            }
        }
     }

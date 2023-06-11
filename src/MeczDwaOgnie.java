@@ -21,7 +21,11 @@ public class MeczDwaOgnie {
         Random liczba2= new Random();
 //        wynik=liczba.nextInt(2);
         wynikd1=liczba1.nextInt(2);
-        wynikd2=liczba2.nextInt(2);
+        wynikd2 = wynikd1;
+        while (wynikd2 == wynikd1)
+        {
+            wynikd2=liczba2.nextInt(2);
+        }
         if(wynik==0)
         {
             druzyna1.Punkty+=1;
