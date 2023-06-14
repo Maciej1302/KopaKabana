@@ -27,7 +27,7 @@ public class TURNIEJ {
     }
 
 
-    //tutaj domin
+
     public void przegladajDruzyny() {
         for (DRUZYNA druzyna : Druzyny) {
             System.out.println(Druzyny.indexOf(druzyna) + ". " + "Nazwa drużyny: " + druzyna.NazwaDruzyny + "\n" + "Dziedzina Sportowa: " + druzyna.DziedzinaSportowa + "\n" + "Dane o zawodnikach: " + "\n" + "Zawodnik nr1" + "\n" + "Imie: " + druzyna.zawodnik1.Imie + "\n" + "Nazwisko: " + druzyna.zawodnik1.Nazwisko + "\n" + "Numer: " + druzyna.zawodnik1.NumerZawodnika + "\n" + "Zawodnik nr2" + "\n" + "Imie: " + druzyna.zawodnik2.Imie + "\n" + "Nazwisko: " + druzyna.zawodnik2.Nazwisko + "\n" + "Numer: " + druzyna.zawodnik2.NumerZawodnika);
