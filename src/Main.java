@@ -9,7 +9,7 @@ import java.util.logging.SocketHandler;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main implements Serializable {
     public static void main(String[] args) throws Exception {
-        //ready
+        //ready123
 
         TURNIEJ turniej = new TURNIEJ();
 

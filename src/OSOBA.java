@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class OSOBA implements Serializable {
+abstract public class OSOBA implements Serializable {
     public String Imie;
     public String Nazwisko;
 
