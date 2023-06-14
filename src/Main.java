@@ -138,7 +138,7 @@ public class Main implements Serializable {
                                 System.out.println("Ktora druzyne chcesz wycofać");
                                 turniej.przegladajDruzyny();
                                 ktoraDoUsuniecia1 = sc.nextInt();
-                                turniej.wycofajDruzyne(ktoraDoUsuniecia1);//nie dziala usuwanie ostatniej druzyny
+                                turniej.wycofajDruzyne(ktoraDoUsuniecia1);
                                 break;
 
                             case 4:
