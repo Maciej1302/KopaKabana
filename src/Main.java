@@ -9,68 +9,10 @@ import java.util.logging.SocketHandler;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main implements Serializable {
     public static void main(String[] args) throws Exception {
-        ZAWODNIK z1 = new ZAWODNIK("Maciuś11111", "R", 13);
+        //ready
 
-        ZAWODNIK z2 = new ZAWODNIK("Ulcia", "R", 4);
-        ZAWODNIK z3 = new ZAWODNIK("Domiś", "Ż", 23);
-        ZAWODNIK z4 = new ZAWODNIK("Romek", "A", 80);
-        ZAWODNIK z5 = new ZAWODNIK("Maciuś", "R", 13);
-        ZAWODNIK z6 = new ZAWODNIK("Ulcia", "R", 4);
-        ZAWODNIK z7 = new ZAWODNIK("Domiś", "Ż", 23);
-        ZAWODNIK z8 = new ZAWODNIK("Romek", "A", 80);
-//
-       // SĘDZIA s1 = new SĘDZIA("Daro", "Lew", 3, "Siatkowka_Plazowa");
-        //SĘDZIA s2 = new SĘDZIA("Daro1", "Lew1", 3, "Przeciaganie_Liny");
-//
-//
-//        DRUZYNA d1 = new DRUZYNA("Byki", "Siatkowka_Plazowa", z3, z4);
-//        DRUZYNA d2 = new DRUZYNA("ZZ", "Siatkowka_Plazowa", z1, z2);
-//        DRUZYNA d3 = new DRUZYNA("AA", "Siatkowka_Plazowa", z5, z6);
-//        DRUZYNA d4 = new DRUZYNA("BB", "Siatkowka_Plazowa", z7, z8);
-//
-//        DRUZYNA d5 = new DRUZYNA("Byki", "Dwa_Ognie", z3, z4);
-//        DRUZYNA d6 = new DRUZYNA("ZZ", "Dwa_Ognie", z1, z2);
-//        DRUZYNA d7 = new DRUZYNA("AA", "Dwa_Ognie", z5, z6);
-//        DRUZYNA d8 = new DRUZYNA("BB", "Dwa_Ognie", z7, z8);
-//
-//        DRUZYNA d9 = new DRUZYNA("Byki", "Przeciaganie_Liny", z3, z4);
-//        DRUZYNA d10 = new DRUZYNA("ZZ", "Przeciaganie_Liny", z1, z2);
-//        DRUZYNA d11 = new DRUZYNA("AA", "Przeciaganie_Liny", z5, z6);
-//        DRUZYNA d12 = new DRUZYNA("BB", "Przeciaganie_Liny", z7, z8);
-
-
-//
-//        MeczDwaOgnie m1 = new MeczDwaOgnie(d1, d2, s1);
-//        MeczDwaOgnie m2 = new MeczDwaOgnie(d2, d3, s1);
-//        MeczDwaOgnie m4 = new MeczDwaOgnie(d1, d3, s1);
-//        MeczDwaOgnie m5 = new MeczDwaOgnie(d1, d4, s1);
-//        MeczDwaOgnie m6 = new MeczDwaOgnie(d2, d4, s1);
-//        MeczDwaOgnie m7 = new MeczDwaOgnie(d3, d4, s1);
-
-//        System.out.println("Wynik m1=" + m1.wynik);
-//        System.out.println("Pkt d1=" + d1.Punkty);
-//        System.out.println("Pkt d2=" + d2.Punkty);
-
-//
-//        //odtad domin!!
         TURNIEJ turniej = new TURNIEJ();
-//        MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa();
-//        turniej.dodajDruzyne(d1);
-//        turniej.dodajDruzyne(d2);
-//        turniej.dodajDruzyne(d3);
-//        turniej.dodajDruzyne(d4);
-//        turniej.dodajDruzyne(d5);
-//        turniej.dodajDruzyne(d6);
-//        turniej.dodajDruzyne(d7);
-//        turniej.dodajDruzyne(d8);
-//        turniej.dodajDruzyne(d9);
-//        turniej.dodajDruzyne(d10);
-//        turniej.dodajDruzyne(d11);
-//        turniej.dodajDruzyne(d12);
-        //turniej.WyswietlRanknig();
-        //turniej.dodajSedziego(s1);
-        //turniej.dodajSedziego(s2);
-//
+
         int wyborDruzyna=0, wyborSedzia=0, wyborSiatkowka=0, wyborOgnie=0, wyborLina=0, wyborTurniejSiata=0, wyborTurniejOgnie=0, wyborTurniejLina=0, wyborSedziaDoUsuniecia=-9;
         boolean wyborDruzynaB= true;
 
@@ -81,14 +23,13 @@ public class Main implements Serializable {
         int numerZawodnika = 0, numerSedziego = 0;
 
 
-        while (wybor!=6) {
+        while (wybor!=5) {
             System.out.println("Wybierz opcje");
             System.out.println("1. Zarządzaj drużynami");
             System.out.println("2. Zarządzaj sędziami");
             System.out.println("3. Rozegraj turniej");
-            System.out.println("4. Wyświetl tabele wyników");
-            System.out.println("5. Wczytaj poprzedni stan programu");
-            System.out.println("6. Wyjdź");
+            System.out.println("4. Wczytaj poprzedni stan programu");
+            System.out.println("5. Wyjdź");
             wyborDruzyna =0;
             wyborSedzia =0;
             wyborSiatkowka=0;
@@ -325,14 +266,12 @@ public class Main implements Serializable {
 
                     }
                     break;
+
                 case 4:
-                    turniej.tabelaWynikow();
-                    break;
-                case 5:
                     turniej.wczytanie_stanu_sedziow_druzyn();
                     break;
-                case 6:
-                    System.out.println("Wyszedles z programu naura");
+                case 5:
+                    System.out.println("Wyszedles z programu");
                     turniej.zapis_stanu_sedziow_druzyn();
                     System.exit(-1);
                     break;

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.io.*;
 
@@ -34,9 +35,12 @@ public class TURNIEJ {
     }
 
     public void wycofajDruzyne(int ktoraDoUsuniecia) {
-        for (DRUZYNA druzyna : Druzyny) {
+        Iterator<DRUZYNA> iterator = Druzyny.iterator();
+        while (iterator.hasNext()) {
+            DRUZYNA druzyna = iterator.next();
             if (Druzyny.indexOf(druzyna) == ktoraDoUsuniecia) {
-                Druzyny.remove(druzyna);
+                iterator.remove();
+                break;
             }
         }
     }
@@ -65,11 +69,13 @@ public class TURNIEJ {
     }
 
     public void usunSedziego(int ktorySedzia) {
-        for (SĘDZIA sedzia : sedziowie) {
+        Iterator<SĘDZIA> iterator = sedziowie.iterator();
+        while (iterator.hasNext()) {
+            SĘDZIA sedzia = iterator.next();
             if (sedziowie.indexOf(sedzia) == ktorySedzia) {
-                sedziowie.remove(sedzia);
+                iterator.remove();
+                break;
             }
-
         }
     }
 
@@ -164,7 +170,7 @@ public class TURNIEJ {
                         if (Druzyny.get(i).DziedzinaSportowa.equals("Siatkowka_Plazowa")) {
                             MeczSiatkowkaPlazowa meczSiatkowkaPlazowa = new MeczSiatkowkaPlazowa(Druzyny.get(licznikIndex1), Druzyny.get(i), Sedziowie_SiatkowkaPlazowa);
 
-                            System.out.println("Druzyna:  " + Druzyny.get(licznikIndex1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia głwóny: " + meczSiatkowkaPlazowa.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa.sedzia3.Imie);
+                            System.out.println("Druzyna:  " + Druzyny.get(licznikIndex1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia główny: " + meczSiatkowkaPlazowa.sedzia1.Imie + " Sędzia liniowy 1 :" + meczSiatkowkaPlazowa.sedzia2.Imie + " Sędzia liniowy 2 :" + meczSiatkowkaPlazowa.sedzia3.Imie);
                             System.out.println(meczSiatkowkaPlazowa.wynikd1 + " : " + meczSiatkowkaPlazowa.wynikd2);
                         }
                     }
@@ -186,7 +192,7 @@ public class TURNIEJ {
                         if (Druzyny.get(i).DziedzinaSportowa.equals("Dwa_Ognie")) {
                             MeczDwaOgnie meczDwaOgnie = new MeczDwaOgnie(Druzyny.get(licznikIndex1), Druzyny.get(i), Sedziowie_DwaOgnie);
 
-                            System.out.println("Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + "vs " + " Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + " Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
+                            System.out.println("Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + " Sędzia który sędziował : " + meczDwaOgnie.sedzia1.Imie);
                             System.out.println(meczDwaOgnie.wynikd1 + " " + meczDwaOgnie.wynikd2);
                         }
                     }
@@ -206,7 +212,7 @@ public class TURNIEJ {
                         if (Druzyny.get(i).DziedzinaSportowa.equals("Przeciaganie_Liny")) {
                             MeczPrzeciaganieLiny meczPrzeciaganieLiny = new MeczPrzeciaganieLiny(Druzyny.get(licznikIndex1), Druzyny.get(i), Sedziowie_PrzeciaganieLiny);
 
-                            System.out.println("Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + "vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia: " + meczPrzeciaganieLiny.sedzia1.Imie);
+                            System.out.println("Druzyna " + Druzyny.get(licznikIndex1).NazwaDruzyny + " vs " + " Druzyna " + Druzyny.get(i).NazwaDruzyny + " Sędzia: " + meczPrzeciaganieLiny.sedzia1.Imie);
                             System.out.println(meczPrzeciaganieLiny.wynikd1 + " " + meczPrzeciaganieLiny.wynikd2);
                         }
                     }
